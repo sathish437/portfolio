@@ -81,7 +81,7 @@ export const projectCategories = [
             "https://simple-convertors.netlify.app/",
             "https://simple-stopwatch-65.netlify.app/",
             "https://it-your-notepad.netlify.app/",
-            "https://stopwatch-60045000333.development.catalystserverless.in/app/index.html",
+            "https://stopclock-63.netlify.app/",
             "https://e-commerce-60045000333.development.catalystserverless.in/app/index.html",
             "https://totolist-60045000333.development.catalystserverless.in/app/index.html",
             "https://hato-gymworkouts-5347.netlify.app/"
