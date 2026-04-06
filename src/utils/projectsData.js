@@ -38,20 +38,20 @@ const tailwindJSTechStack = ["HTML", "Tailwind CSS", "JavaScript"];
 const reactTailwindTechStack = ["React", "Tailwind CSS"];
 
 const descriptions = {
-    'learn-english-checklist': 'Helps users track and improve their English learning progress with a structured checklist.',
-    'simple-calc': 'Performs basic arithmetic operations like addition, subtraction, multiplication, and division.',
-    'simple-convertors': 'Converts values between different units like length, weight, or temperature.',
-    'simple-stopwatch': 'Tracks time with start, stop, and reset functionality.',
-    'it-your-notepad': 'Allows users to write, edit, and manage notes easily.',
-    'stopwatch': 'A digital stopwatch to measure time intervals accurately.',
-    'e-commerce': 'Displays products and simulates an online shopping experience.',
-    'totolist': 'Helps users create, manage, and track daily tasks.',
-    'hato-gymworkouts': 'Provides workout plans and exercises for fitness tracking.',
-    'food-nutrition': 'Shows nutritional information for different foods in a clean UI.',
-    'jokegenerator': 'Generates random jokes for entertainment.',
-    'data-science-guidence': 'Provides basic guidance and resources for learning data science.',
-    'bill-system': 'Generates bills and calculates totals for items dynamically.',
-    'shopping-app': 'Allows users to browse products and manage a shopping cart.',
+    'learn-english-checklist': 'Interactive checklist developed to track and enhance English language learning milestones with structured progress monitoring.',
+    'simple-calc': 'Streamlined calculator tool performing essential arithmetic operations with an intuitive user interface.',
+    'simple-convertors': 'Multi-unit conversion utility supporting length, weight, and temperature transformations for daily use.',
+    'simple-stopwatch': 'Clean, responsive stopwatch application featuring precise start, stop, and reset functionalities.',
+    'it-your-notepad': 'Functional note-taking application designed for efficient drafting, editing, and organization of digital notes.',
+    'stopclock': 'Highly accurate digital stopclock optimized for measuring time intervals with high precision.',
+    'e-commerce': 'Modern e-commerce storefront demonstration showcasing product listings and interactive shopping experiences.',
+    'totolist': 'Productivity-focused task manager enabling users to organize, prioritize, and complete daily objectives.',
+    'hato-gymworkouts': 'Comprehensive fitness companion offering curated workout plans and detailed exercise tracking.',
+    'food-nutrition': 'Data-driven nutrition dashboard providing instant access to caloric and nutritional information for various food items.',
+    'jokegenerator': 'Lighthearted web application that utilizes API integration to deliver a constant stream of humor across various categories.',
+    'data-science-guidence': 'Educational hub offering structured pathways and curated resources for aspiring data scientists.',
+    'bill-system': 'Dynamic billing solution designed to automate total calculations and generate structured invoices in real-time.',
+    'shopping-app': 'Feature-rich shopping platform with integrated product browsing and seamless cart management.',
 };
 
 const getDescription = (url) => {

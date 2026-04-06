@@ -41,14 +41,27 @@ export default function ProjectCard({ project, index, isMobile = false }) {
                 </div>
             </div>
 
+            <p className="text-xs text-off-white/60 mb-4 line-clamp-3 group-hover:text-off-white/80 transition-colors">
+                {project.description}
+            </p>
 
+            <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
+                {project.stack?.map((tech, i) => (
+                    <span 
+                        key={i} 
+                        className="text-[9px] px-2 py-0.5 rounded-full bg-accent/5 border border-accent/10 text-accent-light/70 font-medium"
+                    >
+                        {tech}
+                    </span>
+                ))}
+            </div>
 
             {project.links?.live && (
                 <a
                     href={project.links.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-accent/80 hover:text-accent border border-accent/20 hover:border-accent/50 px-3 py-1.5 rounded-lg transition-all duration-200 w-fit"
+                    className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-accent/80 hover:text-accent border border-accent/20 hover:border-accent/50 px-3 py-1.5 rounded-lg transition-all duration-200 w-fit"
                 >
                     <ExternalLink size={11} />
                     View Project
