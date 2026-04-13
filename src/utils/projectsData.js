@@ -74,7 +74,8 @@ const createProject = (url, stack, idStart) => ({
 
 export const projectCategories = [
     {
-        categoryName: "HTML, CSS, JavaScript",
+        categoryName: "Core Web Projects (HTML, CSS, JavaScript)",
+        categoryDescription: "Collection of fundamental web development projects focusing on core concepts and layout structures.",
         projects: [
             "https://learn-english-checklist-60045000333.development.catalystserverless.in/app/index.html",
             "https://simple-calc-60045000333.development.catalystserverless.in/app/index.html",
@@ -88,7 +89,8 @@ export const projectCategories = [
         ].map((url, i) => createProject(url, vanillaTechStack, i + 10))
     },
     {
-        categoryName: "HTML, Tailwind CSS, JavaScript , Rest API",
+        categoryName: "Modern UI & API Projects (Tailwind, JavaScript, REST API)",
+        categoryDescription: "Data-driven web applications leveraging modern CSS frameworks and integrating with external REST APIs.",
         projects: [
             "https://food-nutrition-2.onrender.com/",
             "https://jokegenerator-3-j0ku.onrender.com/",
@@ -96,7 +98,8 @@ export const projectCategories = [
         ].map((url, i) => createProject(url, tailwindJSTechStack, i + 20))
     },
     {
-        categoryName: "React, Tailwind CSS",
+        categoryName: "Advanced Frontend Apps (React & Tailwind)",
+        categoryDescription: "Complex stateful applications built with modern frontend frameworks outlining advanced component architecture.",
         projects: [
             "https://bill-system-67.netlify.app/",
             "https://shopping-app-782.netlify.app/"

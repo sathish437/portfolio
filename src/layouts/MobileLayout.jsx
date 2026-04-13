@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { portfolioData } from '../utils/portfolioData';
-import ProjectCard from '../components/shared/ProjectCard';
+import CategorizedProjects from '../components/shared/CategorizedProjects';
 import SkillsGrid from '../components/shared/SkillsGrid';
 import ContactSection from '../components/shared/ContactSection';
 import bgImage from '../bg.jpeg';
@@ -82,17 +82,8 @@ const sectionsData = [
                     <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
                         Work <span className="text-accent">Gallery</span>
                     </h2>
-                    <div className="flex-1 space-y-8 pb-4">
-                        {portfolioData.sections.projects.map((category) => (
-                            <div key={category.categoryName}>
-                                <p className="text-[9px] font-black uppercase tracking-[0.35em] text-accent/60 mb-3">{category.categoryName}</p>
-                                <div className="space-y-4">
-                                    {category.projects.map((project, i) => (
-                                        <ProjectCard key={project.id} project={project} index={i} isMobile />
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
+                    <div className="flex-1 pb-4">
+                        <CategorizedProjects />
                     </div>
                 </div>
             </div>

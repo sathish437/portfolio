@@ -3,7 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import { useOS } from '../../context/OSContext';
 import AppWindow from './AppWindow';
 import { portfolioData } from '../../utils/portfolioData';
-import ProjectCard from '../shared/ProjectCard';
+import ProjectCard from '../shared/ProjectCard'; // Kept for other potential uses or removed if certain
+import CategorizedProjects from '../shared/CategorizedProjects';
 import SkillsGrid from '../shared/SkillsGrid';
 import ContactSection from '../shared/ContactSection';
 
@@ -26,18 +27,7 @@ const windowContent = {
     projects: () => (
         <div className="p-7 overflow-y-auto max-h-[450px] no-scrollbar">
             <h2 className="text-2xl font-black mb-6 tracking-tight uppercase text-off-white">Work <span className="text-accent">Gallery</span></h2>
-            <div className="space-y-6">
-                {portfolioData.sections.projects.map((category) => (
-                    <div key={category.categoryName}>
-                        <p className="text-[9px] font-black uppercase tracking-[0.35em] text-accent/60 mb-3">{category.categoryName}</p>
-                        <div className="grid grid-cols-1 gap-3">
-                            {category.projects.map((project, i) => (
-                                <ProjectCard key={project.id} project={project} index={i} />
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <CategorizedProjects />
         </div>
     ),
     skills: () => (
