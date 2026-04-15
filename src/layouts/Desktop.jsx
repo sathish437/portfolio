@@ -62,6 +62,55 @@ export default function Desktop() {
                 />
             </div>
 
+            {/* Centered Intro Block */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 flex flex-col items-center justify-center z-[50] pointer-events-none select-none mt-[300px] "
+            >
+                <h1
+                    className="text-7xl font-black leading-none tracking-tighter uppercase mb-3 text-center"
+                    style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        color: '#1a1208',
+                        WebkitTextStroke: '1.2px rgba(150,130,100,0.3)',
+                        textShadow: '0 4px 30px rgba(0,0,0,0.6), 0 0 70px rgba(120,100,70,0.2)'
+                    }}
+                >
+                    {portfolioData.profile.name.split(' ')[0]}<br />
+                    <span style={{ 
+                        color: '#2a1f0f', 
+                        textShadow: '0 4px 35px rgba(0,0,0,0.7), 0 0 90px rgba(120,100,70,0.25)',
+                        WebkitTextStroke: '0.8px rgba(150,130,100,0.2)'
+                    }}>
+                        {portfolioData.profile.name.split(' ')[1]}
+                    </span>
+                </h1>
+                <p
+                    className="text-[11px] font-black uppercase tracking-[0.6em] mb-4 text-center"
+                    style={{ color: '#3d2e16', textShadow: '0 1px 8px rgba(0,0,0,0.35)' }}
+                >
+                    {portfolioData.profile.role}
+                </p>
+                <div className="mt-10 flex flex-col items-center gap-2">
+                    <span
+                        className="text-[10px] font-black uppercase tracking-widest"
+                        style={{ color: '#3d2e16' }}
+                    >
+                        Click an icon to explore
+                    </span>
+                    <motion.span
+                        animate={{ opacity: [0.4, 1, 0.4] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="text-lg leading-none"
+                        style={{ color: '#3d2e16' }}
+                    >
+                        ↙
+                    </motion.span>
+                </div>
+            </motion.div>
+
             {/* Icons (Master Staggered Entrance) */}
             <motion.div
                 variants={containerVariants}
