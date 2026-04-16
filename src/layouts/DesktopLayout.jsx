@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from '../components/desktop/Sidebar'
 import Hero from '../components/desktop/Hero'
 import SocialDock from '../components/desktop/SocialDock'
-import ProjectCard from '../components/shared/ProjectCard'
+import CategorizedProjects from '../components/shared/CategorizedProjects'
 import SkillsGrid from '../components/shared/SkillsGrid'
 import { portfolioData } from '../utils/portfolioData'
 
@@ -32,14 +32,32 @@ export default function DesktopLayout() {
                     </motion.div>
                 )
             case 'skills':
-                return <SkillsGrid data={portfolioData.sections.skills} />
+                return (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="w-full flex flex-col items-center"
+                    >
+                        <div className="max-w-2xl w-full flex flex-col">
+                            <h2 className="text-3xl font-bold mb-6 text-accent">Expertise</h2>
+                            <SkillsGrid data={portfolioData.sections.skills} />
+                        </div>
+                    </motion.div>
+                )
             case 'projects':
                 return (
-                    <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
-                        {portfolioData.sections.projects.map((project, i) => (
-                            <ProjectCard key={project.id} project={project} index={i} />
-                        ))}
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="w-full flex flex-col items-center"
+                    >
+                        <div className="max-w-2xl w-full flex flex-col">
+                            <h2 className="text-3xl font-bold mb-6 text-accent">Work Gallery</h2>
+                            <div className="w-full">
+                                <CategorizedProjects defaultOpen={true} />
+                            </div>
+                        </div>
+                    </motion.div>
                 )
             case 'contact':
                 return (

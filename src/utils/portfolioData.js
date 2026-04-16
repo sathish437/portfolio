@@ -24,42 +24,52 @@ export const portfolioData = {
             categories: [
                 {
                     name: "Programming Languages",
+                    icon: "Code2",
+                    color: "cool",
                     items: [
-                        { name: "Java", desc: "OOP, Collections", highlight: true },
-                        { name: "JavaScript", desc: "ES6 basics", highlight: false }
+                        { name: "Java", desc: "OOP, Collections", icon: "Code", highlight: true, proficiency: 85 },
+                        { name: "JavaScript", desc: "ES6 basics", icon: "Zap", highlight: false, proficiency: 75 }
                     ]
                 },
                 {
                     name: "Frontend",
+                    icon: "Layout",
+                    color: "cool",
                     items: [
-                        { name: "HTML5", highlight: false },
-                        { name: "CSS3", highlight: false },
-                        { name: "Tailwind CSS", highlight: false },
-                        { name: "React.js", desc: "Components, Hooks, API Integration", highlight: true }
+                        { name: "HTML5", icon: "Code", highlight: false, proficiency: 90 },
+                        { name: "CSS3", icon: "Palette", highlight: false, proficiency: 85 },
+                        { name: "Tailwind CSS", icon: "Wind", highlight: false, proficiency: 88 },
+                        { name: "React.js", desc: "Components, Hooks, API Integration", icon: "Sparkles", highlight: true, proficiency: 82 }
                     ]
                 },
                 {
                     name: "Backend",
+                    icon: "Server",
+                    color: "cool",
                     items: [
-                        { name: "Spring Boot", desc: "REST API Development", highlight: true },
-                        { name: "Hibernate / JPA", highlight: false },
-                        { name: "MVC Architecture", highlight: false }
+                        { name: "Spring Boot", desc: "REST API Development", icon: "Leaf", highlight: true, proficiency: 80 },
+                        { name: "Hibernate / JPA", icon: "Database", highlight: false, proficiency: 75 },
+                        { name: "MVC Architecture", icon: "Layers", highlight: false, proficiency: 78 }
                     ]
                 },
                 {
                     name: "Database",
+                    icon: "Database",
+                    color: "cool",
                     items: [
-                        { name: "MySQL", desc: "CRUD Operations, Relationships", highlight: false },
-                        { name: "PostgreSQL", desc: "CRUD Operations, Relationships", highlight: false }
+                        { name: "MySQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: false, proficiency: 82 },
+                        { name: "PostgreSQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: false, proficiency: 78 }
                     ]
                 },
                 {
-                    name: "Tools",
+                    name: "Tools & DevOps",
+                    icon: "Wrench",
+                    color: "cool",
                     items: [
-                        { name: "Git", highlight: false },
-                        { name: "GitHub", highlight: false },
-                        { name: "Maven", highlight: false },
-                        { name: "Postman", highlight: false }
+                        { name: "Git", icon: "GitBranch", highlight: false, proficiency: 80 },
+                        { name: "GitHub", icon: "Github", highlight: false, proficiency: 80 },
+                        { name: "Maven", icon: "Package", highlight: false, proficiency: 75 },
+                        { name: "Postman", icon: "FileText", highlight: false, proficiency: 85 }
                     ]
                 }
             ]

@@ -64,12 +64,13 @@ const getDescription = (url) => {
     } catch { return ''; }
 };
 
-const createProject = (url, stack, idStart) => ({
+const createProject = (url, stack, idStart, featured = false) => ({
     id: idStart,
     name: formatProjectTitle(url),
     description: getDescription(url),
     stack: stack,
-    links: { live: url }
+    links: { live: url },
+    featured: featured
 });
 
 export const projectCategories = [
@@ -86,7 +87,7 @@ export const projectCategories = [
             "https://e-commerce-60045000333.development.catalystserverless.in/app/index.html",
             "https://totolist-60045000333.development.catalystserverless.in/app/index.html",
             "https://hato-gymworkouts-5347.netlify.app/"
-        ].map((url, i) => createProject(url, vanillaTechStack, i + 10))
+        ].map((url, i) => createProject(url, vanillaTechStack, i + 10, i < 2))
     },
     {
         categoryName: "Modern UI & API Projects (Tailwind, JavaScript, REST API)",
@@ -95,7 +96,7 @@ export const projectCategories = [
             "https://food-nutrition-2.onrender.com/",
             "https://jokegenerator-3-j0ku.onrender.com/",
             "https://data-science-guidence46.netlify.app/"
-        ].map((url, i) => createProject(url, tailwindJSTechStack, i + 20))
+        ].map((url, i) => createProject(url, tailwindJSTechStack, i + 20, i < 1))
     },
     {
         categoryName: "Advanced Frontend Apps (React & Tailwind)",
@@ -103,7 +104,7 @@ export const projectCategories = [
         projects: [
             "https://bill-system-67.netlify.app/",
             "https://shopping-app-782.netlify.app/"
-        ].map((url, i) => createProject(url, reactTailwindTechStack, i + 30))
+        ].map((url, i) => createProject(url, reactTailwindTechStack, i + 30, i < 2))
     }
 ];
 

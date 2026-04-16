@@ -21,7 +21,7 @@ export default function DesktopIcon({ id, label, icon }) {
         >
             {/* Icon - image only, no background */}
             <div className={`
-                relative w-30 h-30 rounded-[30px] flex items-center justify-center
+                relative  rounded-[30px] flex items-center justify-center
                 transition-all duration-300
                 ${isMatch
                     ? 'ring-2 ring-white/60 rounded-[20px]'
@@ -29,7 +29,7 @@ export default function DesktopIcon({ id, label, icon }) {
                 }
             `}>
                 {typeof icon === 'string' && !icon.startsWith('data') && !icon.startsWith('/') && !icon.startsWith('http')
-                    ? <span className="relative z-10 text-4xl">{icon}</span>
+                    ? <span className="relative z-10 text-3xl">{icon}</span>
                     : <img src={icon} alt={label} className="relative z-10 w-16 h-16 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.2)]" />
                 }
 
