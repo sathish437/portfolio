@@ -29,14 +29,19 @@ const sectionsData = [
                         WebkitTextStroke: '0.6px rgba(150,130,100,0.2)' 
                     }}
                 >
-                    {portfolioData.profile.name.split(' ')[0]}<br />
-                    <span style={{ 
-                        color: '#2a1f0f', 
-                        textShadow: '0 4px 28px rgba(0,0,0,0.75)',
-                        WebkitTextStroke: '0.4px rgba(150,130,100,0.15)'
-                    }}>
-                        {portfolioData.profile.name.split(' ')[1]}
-                    </span>
+                    {portfolioData.profile.name.split(' ')[0]}
+                    {portfolioData.profile.name.split(' ')[1] && (
+                        <>
+                            <br />
+                            <span style={{ 
+                                color: '#2a1f0f', 
+                                textShadow: '0 4px 28px rgba(0,0,0,0.75)',
+                                WebkitTextStroke: '0.4px rgba(150,130,100,0.15)'
+                            }}>
+                                {portfolioData.profile.name.split(' ')[1]}
+                            </span>
+                        </>
+                    )}
                 </h1>
                 <p className="text-[11px] font-black uppercase tracking-[0.6em] mb-4 relative z-10  bg-clip-text bg-gradient-to-br from-accent-light via-accent to-accent drop-shadow-[0_0_15px_rgba(150,130,115,0.4)]">{portfolioData.profile.role}</p>
 

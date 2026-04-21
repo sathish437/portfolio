@@ -28,7 +28,7 @@ export const portfolioData = {
                     color: "cool",
                     items: [
                         { name: "Java", desc: "OOP, Collections", icon: "Code", highlight: true, proficiency: 85 },
-                        { name: "JavaScript", desc: "ES6 basics", icon: "Zap", highlight: false, proficiency: 75 }
+                        { name: "Python", desc: "basics", icon: "Python", highlight: false, proficiency: 75 }
                     ]
                 },
                 {
@@ -38,6 +38,7 @@ export const portfolioData = {
                     items: [
                         { name: "HTML5", icon: "Code", highlight: false, proficiency: 90 },
                         { name: "CSS3", icon: "Palette", highlight: false, proficiency: 85 },
+                        { name: "JavaScript", desc: "ES6 basics", icon: "Zap", highlight: false, proficiency: 75 },
                         { name: "Tailwind CSS", icon: "Wind", highlight: false, proficiency: 88 },
                         { name: "React.js", desc: "Components, Hooks, API Integration", icon: "Sparkles", highlight: true, proficiency: 82 }
                     ]
@@ -49,7 +50,9 @@ export const portfolioData = {
                     items: [
                         { name: "Spring Boot", desc: "REST API Development", icon: "Leaf", highlight: true, proficiency: 80 },
                         { name: "Hibernate / JPA", icon: "Database", highlight: false, proficiency: 75 },
-                        { name: "MVC Architecture", icon: "Layers", highlight: false, proficiency: 78 }
+                        { name: "Spring MVC", icon: "Layers", highlight: false, proficiency: 78 },
+                        { name: "RESTful APIs", icon: "Globe", highlight: true, proficiency: 85 },
+                        { name: "Spring Data JPA", icon: "Database", highlight: false, proficiency: 75 }
                     ]
                 },
                 {
@@ -57,7 +60,7 @@ export const portfolioData = {
                     icon: "Database",
                     color: "cool",
                     items: [
-                        { name: "MySQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: false, proficiency: 82 },
+                        { name: "MySQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: true, proficiency: 82 },
                         { name: "PostgreSQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: false, proficiency: 78 }
                     ]
                 },
@@ -66,10 +69,12 @@ export const portfolioData = {
                     icon: "Wrench",
                     color: "cool",
                     items: [
-                        { name: "Git", icon: "GitBranch", highlight: false, proficiency: 80 },
-                        { name: "GitHub", icon: "Github", highlight: false, proficiency: 80 },
+                        { name: "GitHub", icon: "Github", highlight: true, proficiency: 80 },
+                        { name: "Postman", icon: "FileText", highlight: true, proficiency: 85 },
                         { name: "Maven", icon: "Package", highlight: false, proficiency: 75 },
-                        { name: "Postman", icon: "FileText", highlight: false, proficiency: 85 }
+                        { name: "Swagger", icon: "FileText", highlight: false, proficiency: 70 },
+                        { name: "Docker", icon: "Box", highlight: false, proficiency: 60 },
+                        { name: "CI/CD (GitHub Actions)", icon: "RefreshCw", highlight: false, proficiency: 60 }
                     ]
                 }
             ]

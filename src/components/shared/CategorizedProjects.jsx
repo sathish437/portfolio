@@ -4,12 +4,22 @@ import { ChevronRight, Sparkles } from 'lucide-react';
 import { portfolioData } from '../../utils/portfolioData';
 import ProjectCard from './ProjectCard';
 import { BackgroundBlobs } from './BackgroundBlobs';
+import category1Img from '../../img/category1.png';
+import category2Img from '../../img/category2.jpg';
+import category3Img from '../../img/category3.jpg';
 
 export default function CategorizedProjects({ defaultOpen = false }) {
     const [activeCategoryId, setActiveCategoryId] = useState(defaultOpen ? portfolioData.sections.projects[0]?.categoryName : null);
     const [selectedProjectId, setSelectedProjectId] = useState(null);
 
     const categories = portfolioData.sections.projects;
+
+    // Map category names to imported images
+    const categoryImages = {
+        'Core Web Projects (HTML, CSS, JavaScript)': category1Img,
+        'Modern UI & API Projects (Tailwind, JavaScript, REST API)': category2Img,
+        'Advanced Frontend Apps (React & Tailwind)': category3Img,
+    };
 
     const toggleCategory = (catName) => {
         setActiveCategoryId(activeCategoryId === catName ? null : catName);
@@ -25,7 +35,6 @@ export default function CategorizedProjects({ defaultOpen = false }) {
             <div className="relative z-content space-y-6">
                 {categories.map((category, index) => {
                     const isActive = activeCategoryId === category.categoryName;
-                    const projectCount = category.projects.length;
 
                     return (
                         <motion.div
@@ -37,65 +46,68 @@ export default function CategorizedProjects({ defaultOpen = false }) {
                                 index !== categories.length - 1 ? 'pb-6 border-b border-accent/10' : ''
                             }`}
                         >
-                            {/* Category Header */}
+                            {/* Category Header with Image Inside */}
                             <motion.button
                                 onClick={() => toggleCategory(category.categoryName)}
-                                whileHover={{ x: 4 }}
-                                className={`w-full flex items-center justify-between p-6 rounded-2xl transition-all duration-300 border relative overflow-hidden ${
+                                whileHover={{ scale: 1.01 }}
+                                className={`w-full flex flex-col p-4 sm:p-5 rounded-2xl transition-all duration-300 border relative overflow-hidden ${
                                     isActive
-                                        ? 'bg-accent/10 border-accent/40'
+                                        ? 'bg-accent/10 border-accent/40 shadow-lg shadow-accent/5'
                                         : 'bg-white/[0.02] border-accent/10 hover:bg-white/[0.04] hover:border-accent/25'
                                 }`}
                             >
-                                {/* Background gradient on hover */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none">
-                                    <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-accent/10 to-transparent blur-3xl rounded-full" />
-                                </div>
-
-                                <div className="relative z-10 flex flex-col text-left flex-1">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        {isActive && (
-                                            <motion.div
-                                                animate={{ rotate: 360 }}
-                                                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                                                className="text-accent"
-                                            >
-                                                <Sparkles size={16} />
-                                            </motion.div>
-                                        )}
-                                        <span className={`text-sm font-black uppercase tracking-wider transition-colors ${
-                                            isActive ? 'text-accent' : 'text-off-white/90 group-hover:text-accent'
-                                        }`}>
-                                            {category.categoryName}
-                                        </span>
-                                        <motion.div
-                                            animate={{ scale: isActive ? 1.1 : 1 }}
-                                            className={`ml-auto text-xs px-2.5 py-1 rounded-full font-bold ${
-                                                isActive
-                                                    ? 'bg-accent/25 text-accent'
-                                                    : 'bg-white/[0.05] text-off-white/60'
-                                            }`}
-                                        >
-                                            {projectCount} {projectCount === 1 ? 'Project' : 'Projects'}
-                                        </motion.div>
+                                {/* Top Image */}
+                                {categoryImages[category.categoryName] && (
+                                    <div className="relative w-full h-40 sm:h-48 rounded-xl overflow-hidden border-2 border-accent/30 mb-4 group/img">
+                                        <img
+                                            src={categoryImages[category.categoryName]}
+                                            alt={category.categoryName}
+                                            className="w-full h-full object-contain bg-dark/50 transition-transform duration-300 ease-in-out group-hover:scale-[1.03]"
+                                        />
+                                        {/* Gradient overlay for text visibility */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-dark/20 to-transparent opacity-60" />
+                                        {/* Hover overlay */}
+                                        <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-300" />
                                     </div>
-                                    <p className="text-xs text-off-white/60 font-medium leading-relaxed mt-1">
-                                        {category.categoryDescription}
-                                    </p>
-                                </div>
+                                )}
 
-                                {/* Chevron Icon */}
-                                <motion.div
-                                    animate={{
-                                        rotate: isActive ? 90 : 0,
-                                        scale: isActive ? 1.2 : 1,
-                                    }}
-                                    className={`shrink-0 ml-4 transition-colors ${
-                                        isActive ? 'text-accent' : 'text-accent/40 group-hover:text-accent/60'
-                                    }`}
-                                >
-                                    <ChevronRight size={22} />
-                                </motion.div>
+                                {/* Content Section */}
+                                <div className="relative z-10 flex items-center justify-between text-left">
+                                    <div className="flex flex-col min-w-0">
+                                        <div className="flex items-center gap-2 flex-wrap">
+                                            {isActive && (
+                                                <motion.div
+                                                    animate={{ rotate: 360 }}
+                                                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                                                    className="text-accent shrink-0"
+                                                >
+                                                    <Sparkles size={14} />
+                                                </motion.div>
+                                            )}
+                                            <span className={`text-sm font-black uppercase tracking-wider transition-colors truncate ${
+                                                isActive ? 'text-accent' : 'text-off-white/90 group-hover:text-accent'
+                                            }`}>
+                                                {category.categoryName}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-off-white/60 font-medium leading-relaxed mt-1">
+                                            {category.categoryDescription}
+                                        </p>
+                                    </div>
+
+                                    {/* Chevron Icon */}
+                                    <motion.div
+                                        animate={{
+                                            rotate: isActive ? 90 : 0,
+                                            scale: isActive ? 1.2 : 1,
+                                        }}
+                                        className={`shrink-0 ml-4 transition-colors ${
+                                            isActive ? 'text-accent' : 'text-accent/40 group-hover:text-accent/60'
+                                        }`}
+                                    >
+                                        <ChevronRight size={22} />
+                                    </motion.div>
+                                </div>
                             </motion.button>
 
                             {/* Projects List Container */}

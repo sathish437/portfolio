@@ -77,6 +77,7 @@ export const projectCategories = [
     {
         categoryName: "Core Web Projects (HTML, CSS, JavaScript)",
         categoryDescription: "Collection of fundamental web development projects focusing on core concepts and layout structures.",
+        categoryImage: "/img/catagiry1.png",
         projects: [
             "https://learn-english-checklist-60045000333.development.catalystserverless.in/app/index.html",
             "https://simple-calc-60045000333.development.catalystserverless.in/app/index.html",
@@ -92,6 +93,7 @@ export const projectCategories = [
     {
         categoryName: "Modern UI & API Projects (Tailwind, JavaScript, REST API)",
         categoryDescription: "Data-driven web applications leveraging modern CSS frameworks and integrating with external REST APIs.",
+        categoryImage: "/img/category2.jpg",
         projects: [
             "https://food-nutrition-2.onrender.com/",
             "https://jokegenerator-3-j0ku.onrender.com/",
@@ -101,6 +103,7 @@ export const projectCategories = [
     {
         categoryName: "Advanced Frontend Apps (React & Tailwind)",
         categoryDescription: "Complex stateful applications built with modern frontend frameworks outlining advanced component architecture.",
+        categoryImage: "/img/category3.jpg",
         projects: [
             "https://bill-system-67.netlify.app/",
             "https://shopping-app-782.netlify.app/"

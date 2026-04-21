@@ -5,7 +5,7 @@ import Taskbar from '../components/taskbar/Taskbar';
 import { portfolioData } from '../utils/portfolioData';
 import { motion } from 'framer-motion';
 import bgImage from '../bg.jpeg';
-import contect from '../img/contact.png'
+import contact from '../img/contact.png'
 import about from '../img/about.png'
 import projects from '../img/projects.png'
 import skills from '../img/skills.png'
@@ -15,7 +15,7 @@ export default function Desktop() {
         { id: 'about', label: 'About', icon: about },
         { id: 'projects', label: 'Projects', icon: projects },
         { id: 'skills', label: 'Skills', icon: skills },
-        { id: 'contact', label: 'Contact', icon: contect },
+        { id: 'contact', label: 'Contact', icon: contact },
     ];
 
     const containerVariants = {
@@ -78,14 +78,19 @@ export default function Desktop() {
                         textShadow: '0 4px 30px rgba(0,0,0,0.6), 0 0 70px rgba(120,100,70,0.2)'
                     }}
                 >
-                    {portfolioData.profile.name.split(' ')[0]}<br />
-                    <span style={{ 
-                        color: '#2a1f0f', 
-                        textShadow: '0 4px 35px rgba(0,0,0,0.7), 0 0 90px rgba(120,100,70,0.25)',
-                        WebkitTextStroke: '0.8px rgba(150,130,100,0.2)'
-                    }}>
-                        {portfolioData.profile.name.split(' ')[1]}
-                    </span>
+                    {portfolioData.profile.name.split(' ')[0]}
+                    {portfolioData.profile.name.split(' ')[1] && (
+                        <>
+                            <br />
+                            <span style={{ 
+                                color: '#2a1f0f', 
+                                textShadow: '0 4px 35px rgba(0,0,0,0.7), 0 0 90px rgba(120,100,70,0.25)',
+                                WebkitTextStroke: '0.8px rgba(150,130,100,0.2)'
+                            }}>
+                                {portfolioData.profile.name.split(' ')[1]}
+                            </span>
+                        </>
+                    )}
                 </h1>
                 <p
                     className="text-[11px] font-black uppercase tracking-[0.6em] mb-4 text-center"
