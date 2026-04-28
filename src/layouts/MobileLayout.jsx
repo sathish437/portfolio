@@ -153,7 +153,7 @@ export default function MobileLayout() {
         const containerWidth = container.clientWidth;
         container.scrollTo({
             left: index * containerWidth,
-            behavior: 'smooth'
+            behavior: 'auto'
         });
     };
 
@@ -177,14 +177,15 @@ export default function MobileLayout() {
             {/* Horizontal Swipe Container */}
             <div
                 ref={scrollContainerRef}
-                className="relative z-10 w-full h-[100dvh] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth"
+                className="relative z-10 w-full h-[100dvh] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar"
+                style={{ scrollBehavior: 'auto' }}
             >
                 {sectionsData.map((section) => {
                     const Content = section.component;
                     return (
                         <section
                             key={section.id}
-                            className="w-screen shrink-0 h-[100dvh] snap-center overflow-x-hidden flex flex-col"
+                            className="w-screen shrink-0 h-[100dvh] snap-center snap-always overflow-x-hidden flex flex-col"
                         >
                             <Content />
                         </section>
