@@ -13,7 +13,9 @@ export const formatProjectTitle = (url) => {
             'simple-calc': 'Simple Calculator',
             'totolist': 'Todo List',
             'hato-gymworkouts': 'Hato Gym Workouts',
-            'it-your-notepad': 'IT Your Notepad' // or just let it format normally
+            'it-your-notepad': 'IT Your Notepad', // or just let it format normally
+            'healthsync-le87': 'Healthsync',
+            'chatbot-iwkx': 'Chatbot'
         };
 
         if (overrides[namePart]) {
@@ -36,6 +38,8 @@ export const formatProjectTitle = (url) => {
 const vanillaTechStack = ["HTML", "CSS", "JavaScript"];
 const tailwindJSTechStack = ["HTML", "Tailwind CSS", "JavaScript"];
 const reactTailwindTechStack = ["React", "Tailwind CSS"];
+const springBootTechStack = ["React","Spring Boot", "Java", "Thymeleaf", "MySQL"];
+const fullStackTechStack = ["React", "Spring Boot/Node.js", "Tailwind CSS", "PostgreSQL"];
 
 const descriptions = {
     'learn-english-checklist': 'Interactive checklist developed to track and enhance English language learning milestones with structured progress monitoring.',
@@ -52,6 +56,10 @@ const descriptions = {
     'data-science-guidence': 'Educational hub offering structured pathways and curated resources for aspiring data scientists.',
     'bill-system': 'Dynamic billing solution designed to automate total calculations and generate structured invoices in real-time.',
     'shopping-app': 'Feature-rich shopping platform with integrated product browsing and seamless cart management.',
+    'progressoverview': 'A clean progress tracking dashboard to monitor performance, tasks, and overall workflow status.',
+    'healthsync': 'A health-focused web application for managing wellness data, tracking records, and monitoring health activity.',
+    'chatbot': 'An interactive chatbot application designed to simulate real-time user conversations and automated responses.',
+    'ecom': 'A modern e-commerce web application for browsing products and managing online shopping flow.',
 };
 
 const getDescription = (url) => {
@@ -108,6 +116,23 @@ export const projectCategories = [
             "https://bill-system-67.netlify.app/",
             "https://shopping-app-782.netlify.app/"
         ].map((url, i) => createProject(url, reactTailwindTechStack, i + 30, i < 2))
+    },
+    {
+        categoryName: "WEB PLATFORM BUILT WITH SPRING BOOT",
+        categoryDescription: "Full-stack web platforms powered by Spring Boot backend with modern frontend integration.",
+        categoryImage: "/img/category4.jpg",
+        projects: []
+    },
+    {
+        categoryName: "Full Stack Apps (Render Cloud)",
+        categoryDescription: "Production-ready full stack applications deployed on Render cloud platform with React and Spring Boot.",
+        categoryImage: "/img/category5.jpg",
+        projects: [
+            "https://progressoverview-1.onrender.com",
+            "https://healthsync-le87.onrender.com",
+            "https://chatbot-iwkx.onrender.com",
+            "https://ecom-5xf1.onrender.com"
+        ].map((url, i) => createProject(url, fullStackTechStack, i + 50, i < 2))
     }
 ];
 

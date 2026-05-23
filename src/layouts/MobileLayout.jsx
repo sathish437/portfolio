@@ -57,8 +57,8 @@ const sectionsData = [
     {
         id: 'about',
         component: () => (
-            <div className="px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
-                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📂</div>
                     <h2 className="text-3xl font-black mb-6 tracking-tight uppercase text-off-white">
                         About <span className="text-accent">Me</span>
@@ -80,8 +80,8 @@ const sectionsData = [
     {
         id: 'skills',
         component: () => (
-            <div className="px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
-                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">💡</div>
                     <h2 className="text-3xl font-black mb-8 tracking-tight text-accent uppercase">Expertise</h2>
                     <div className="flex-1 w-full pb-4">
@@ -94,8 +94,8 @@ const sectionsData = [
     {
         id: 'projects',
         component: () => (
-            <div className="px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
-                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">💻</div>
                     <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
                         Work <span className="text-accent">Gallery</span>
@@ -110,8 +110,8 @@ const sectionsData = [
     {
         id: 'contact',
         component: () => (
-            <div className="px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
-                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📞</div>
                     <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
                         Let's <span className="text-accent">Sync</span>

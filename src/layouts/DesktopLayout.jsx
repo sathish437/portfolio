@@ -15,70 +15,70 @@ export default function DesktopLayout() {
             case 'about':
                 return (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="max-w-2xl"
-                    >
-                        <h2 className="text-3xl font-bold mb-6 text-accent">About Me</h2>
-                        <p className="text-gray-400 leading-relaxed text-lg mb-6">
-                            {portfolioData.sections.about.intro}
-                        </p>
-                        <div className="inline-block bg-accent/10 border border-accent/20 rounded-xl px-4 py-2 mb-6">
-                            <p className="text-accent text-sm font-bold tracking-wide">{portfolioData.sections.about.techHighlight}</p>
-                        </div>
-                        <p className="text-gray-500 leading-relaxed text-base italic border-l-2 border-accent/40 pl-4">
-                            {portfolioData.sections.about.statement}
-                        </p>
-                    </motion.div>
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="max-w-2xl relative z-10"
+                        >
+                            <h2 className="text-3xl font-bold mb-6 text-accent">About Me</h2>
+                            <p className="text-gray-400 leading-relaxed text-lg mb-6">
+                                {portfolioData.sections.about.intro}
+                            </p>
+                            <div className="inline-block bg-accent/10 border border-accent/20 rounded-xl px-4 py-2 mb-6">
+                                <p className="text-accent text-sm font-bold tracking-wide">{portfolioData.sections.about.techHighlight}</p>
+                            </div>
+                            <p className="text-gray-500 leading-relaxed text-base italic border-l-2 border-accent/40 pl-4">
+                                {portfolioData.sections.about.statement}
+                            </p>
+                        </motion.div>
                 )
             case 'skills':
                 return (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="w-full flex flex-col items-center"
-                    >
-                        <div className="max-w-2xl w-full flex flex-col">
-                            <h2 className="text-3xl font-bold mb-6 text-accent">Expertise</h2>
-                            <SkillsGrid data={portfolioData.sections.skills} />
-                        </div>
-                    </motion.div>
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="w-full flex flex-col items-center relative z-10"
+                        >
+                            <div className="max-w-2xl w-full flex flex-col">
+                                <h2 className="text-3xl font-bold mb-6 text-accent">Expertise</h2>
+                                <SkillsGrid data={portfolioData.sections.skills} />
+                            </div>
+                        </motion.div>
                 )
             case 'projects':
                 return (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="w-full flex flex-col items-center"
-                    >
-                        <div className="max-w-2xl w-full flex flex-col">
-                            <h2 className="text-3xl font-bold mb-6 text-accent">Work Gallery</h2>
-                            <div className="w-full">
-                                <CategorizedProjects defaultOpen={true} />
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="w-full flex flex-col items-center relative z-10"
+                        >
+                            <div className="max-w-2xl w-full flex flex-col">
+                                <h2 className="text-3xl font-bold mb-6 text-accent">Work Gallery</h2>
+                                <div className="w-full">
+                                    <CategorizedProjects defaultOpen={true} />
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
                 )
             case 'contact':
                 return (
-                    <div className="glass-card p-10 max-w-xl w-full border-accent/20">
-                        <h2 className="text-3xl font-bold mb-8 text-accent">Get in Touch</h2>
-                        <div className="space-y-6">
-                            {portfolioData.sections.contact.methods.map((method) => (
-                                <a
-                                    key={method.label}
-                                    href={method.link}
-                                    className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                                >
-                                    <div>
-                                        <span className="text-sm text-gray-500 block">{method.label}</span>
-                                        <span className="text-lg font-medium">{method.value}</span>
-                                    </div>
-                                    <div className="opacity-0 group-hover:opacity-100 transition-opacity text-accent">→</div>
-                                </a>
-                            ))}
+                    <div className="glass-card p-10 max-w-xl w-full border-accent/20 relative z-10">
+                            <h2 className="text-3xl font-bold mb-8 text-accent">Get in Touch</h2>
+                            <div className="space-y-6">
+                                {portfolioData.sections.contact.methods.map((method) => (
+                                    <a
+                                        key={method.label}
+                                        href={method.link}
+                                        className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
+                                    >
+                                        <div>
+                                            <span className="text-sm text-gray-500 block">{method.label}</span>
+                                            <span className="text-lg font-medium">{method.value}</span>
+                                        </div>
+                                        <div className="opacity-0 group-hover:opacity-100 transition-opacity text-accent">→</div>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
-                    </div>
                 )
             default:
                 return <Hero />

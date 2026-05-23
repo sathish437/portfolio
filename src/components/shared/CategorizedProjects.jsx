@@ -5,8 +5,10 @@ import { portfolioData } from '../../utils/portfolioData';
 import ProjectCard from './ProjectCard';
 import { BackgroundBlobs } from './BackgroundBlobs';
 import category1Img from '../../img/category1.png';
-import category2Img from '../../img/category2.jpg';
-import category3Img from '../../img/category3.jpg';
+import category2Img from '../../img/category2.png';
+import category3Img from '../../img/category3.png';
+import category4Img from '../../img/category4.png';
+import category5Img from '../../img/category5.png';
 
 export default function CategorizedProjects({ defaultOpen = false }) {
     const [activeCategoryId, setActiveCategoryId] = useState(defaultOpen ? portfolioData.sections.projects[0]?.categoryName : null);
@@ -19,6 +21,8 @@ export default function CategorizedProjects({ defaultOpen = false }) {
         'Core Web Projects (HTML, CSS, JavaScript)': category1Img,
         'Modern UI & API Projects (Tailwind, JavaScript, REST API)': category2Img,
         'Advanced Frontend Apps (React & Tailwind)': category3Img,
+        'WEB PLATFORM BUILT WITH SPRING BOOT': category4Img,
+        'Full Stack Apps (Render Cloud)': category5Img,
     };
 
     const toggleCategory = (catName) => {
