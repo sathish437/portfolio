@@ -38,7 +38,7 @@ export default function DesktopLayout() {
                             animate={{ opacity: 1, y: 0 }}
                             className="w-full flex flex-col items-center relative z-10"
                         >
-                            <div className="max-w-2xl w-full flex flex-col">
+                            <div className="max-w-4xl w-full flex flex-col">
                                 <h2 className="text-3xl font-bold mb-6 text-accent">Expertise</h2>
                                 <SkillsGrid data={portfolioData.sections.skills} />
                             </div>
