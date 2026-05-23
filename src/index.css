@@ -29,6 +29,17 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* Skills section — single scroll viewport (mobile only) */
+.skills-scroll-viewport {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: auto;
+  touch-action: pan-y;
+}
+
+.skills-section-flow {
+  overflow: visible;
+}
+
 @layer components {
     .glass-card {
         @apply bg-surface/80 border border-white/5 backdrop-blur-md rounded-2xl shadow-xl;

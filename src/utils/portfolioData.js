@@ -8,7 +8,7 @@ export const portfolioData = {
         status: "Available for new projects",
         social: {
             github: "https://github.com/sathish437",
-            linkedin: "https://linkedin.com/in/sathish", // Placeholder, since they couldn't remember their exact handling, using their github name for now.
+            linkedin: "https://www.linkedin.com/in/sathish-duraisamy-a56999298/",
             email: "mailto:duraisamysathish4@gmail.com"
         }
     },
@@ -83,7 +83,7 @@ export const portfolioData = {
         contact: {
             title: "Contact",
             methods: [
-                { id: "linkedin", label: "LinkedIn", value: "linkedin.com/in/insert-username", link: "https://linkedin.com/in/" },
+                { id: "linkedin", label: "LinkedIn", value: "linkedin.com/in/sathish-duraisamy-a56999298", link: "https://www.linkedin.com/in/sathish-duraisamy-a56999298/" },
                 { id: "github", label: "GitHub", value: "github.com/sathish437", link: "https://github.com/sathish437" }
             ]
         }

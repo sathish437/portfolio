@@ -5,7 +5,7 @@ import AppWindow from './AppWindow';
 import { portfolioData } from '../../utils/portfolioData';
 import ProjectCard from '../shared/ProjectCard'; // Kept for other potential uses or removed if certain
 import CategorizedProjects from '../shared/CategorizedProjects';
-import SkillsGrid from '../shared/SkillsGrid';
+import SkillsSection from '../shared/skills/SkillsSection';
 import ContactSection from '../shared/ContactSection';
 
 const windowContent = {
@@ -31,9 +31,8 @@ const windowContent = {
         </div>
     ),
     skills: () => (
-        <div className="p-7 overflow-y-auto max-h-[450px] no-scrollbar">
-            <h2 className="text-2xl font-black mb-8 tracking-tight text-accent uppercase text-left">Expertise</h2>
-            <SkillsGrid data={portfolioData.sections.skills} />
+        <div className="p-7">
+            <SkillsSection data={portfolioData.sections.skills} variant="window" />
         </div>
     ),
     contact: () => (

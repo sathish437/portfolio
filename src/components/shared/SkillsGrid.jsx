@@ -7,13 +7,12 @@ export default function SkillsGrid({ data }) {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1,
+                staggerChildren: 0.12,
+                delayChildren: 0.08,
             },
         },
     };
 
-    // Dynamically combine "Database" and "Tools & DevOps" categories into a single category "Tools & Databases"
     const combinedCategories = [];
     data.categories.forEach(cat => {
         if (cat.name === 'Database' || cat.name === 'Tools & DevOps') {
@@ -23,11 +22,10 @@ export default function SkillsGrid({ data }) {
                     name: 'Tools & Databases',
                     icon: 'Database',
                     color: 'cool',
-                    items: []
+                    items: [],
                 };
                 combinedCategories.push(toolsDbCat);
             }
-            // Merge skill items
             cat.items.forEach(item => {
                 if (!toolsDbCat.items.some(existing => existing.name === item.name)) {
                     toolsDbCat.items.push(item);
@@ -39,17 +37,16 @@ export default function SkillsGrid({ data }) {
     });
 
     return (
-        <div className="relative w-full">
-            {/* Background Glow Effects */}
-            <div className="absolute -top-40 -left-32 w-96 h-96 bg-accent/8 rounded-full blur-3xl pointer-events-none touch-none" />
-            <div className="absolute top-1/3 -right-40 w-80 h-80 bg-accent/6 rounded-full blur-3xl pointer-events-none touch-none" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none touch-none" />
+        <div className="relative w-full overflow-visible">
+            <div className="absolute -top-40 -left-32 w-96 h-96 bg-accent/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/3 -right-40 w-80 h-80 bg-accent/6 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="relative z-content flex flex-col gap-10"
+                className="relative z-content flex flex-col gap-8 pb-2 overflow-visible"
             >
                 {combinedCategories.map((category, categoryIndex) => (
                     <SkillCategorySection
@@ -62,4 +59,3 @@ export default function SkillsGrid({ data }) {
         </div>
     );
 }
-

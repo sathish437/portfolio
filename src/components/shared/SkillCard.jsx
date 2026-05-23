@@ -84,10 +84,9 @@ export default function SkillCard({
     if (isCompact) {
         return (
             <motion.div
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25, delay: index * 0.03 }}
                 className="relative group w-full max-w-full"
             >
                 <div

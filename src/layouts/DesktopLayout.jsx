@@ -4,7 +4,7 @@ import Sidebar from '../components/desktop/Sidebar'
 import Hero from '../components/desktop/Hero'
 import SocialDock from '../components/desktop/SocialDock'
 import CategorizedProjects from '../components/shared/CategorizedProjects'
-import SkillsGrid from '../components/shared/SkillsGrid'
+import SkillsSection from '../components/shared/skills/SkillsSection'
 import { portfolioData } from '../utils/portfolioData'
 
 export default function DesktopLayout() {
@@ -40,7 +40,7 @@ export default function DesktopLayout() {
                         >
                             <div className="max-w-4xl w-full flex flex-col">
                                 <h2 className="text-3xl font-bold mb-6 text-accent">Expertise</h2>
-                                <SkillsGrid data={portfolioData.sections.skills} />
+                                <SkillsSection data={portfolioData.sections.skills} variant="desktop" />
                             </div>
                         </motion.div>
                 )

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { portfolioData } from '../utils/portfolioData';
 import CategorizedProjects from '../components/shared/CategorizedProjects';
-import SkillsGrid from '../components/shared/SkillsGrid';
+import SkillsSection from '../components/shared/skills/SkillsSection';
 import ContactSection from '../components/shared/ContactSection';
 import bgImage from '../bg.jpeg';
 import MobileFooter from '../components/mobile/MobileFooter';
@@ -11,7 +11,6 @@ const sectionsData = [
         id: 'intro',
         component: () => (
             <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center p-8 pt-[280px] text-center overflow-hidden">
-                {/* Background exclusively for landing page */}
                 <div
                     className="absolute inset-0 bg-cover bg-center scale-105 pointer-events-none -z-10"
                     style={{ backgroundImage: `url(${bgImage})` }}
@@ -20,21 +19,20 @@ const sectionsData = [
                     <div className="absolute inset-0 bg-background/35" />
                 </div>
 
-                {/* Minimal Landing Screen */}
                 <h1 className="text-5xl font-black mb-3 leading-none tracking-tighter uppercase drop-shadow-md relative z-10"
-                    style={{ 
+                    style={{
                         fontFamily: "'Outfit', sans-serif",
-                        color: '#1a1208', 
-                        textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 0 50px rgba(120,100,70,0.18)', 
-                        WebkitTextStroke: '0.6px rgba(150,130,100,0.2)' 
+                        color: '#1a1208',
+                        textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 0 50px rgba(120,100,70,0.18)',
+                        WebkitTextStroke: '0.6px rgba(150,130,100,0.2)'
                     }}
                 >
                     {portfolioData.profile.name.split(' ')[0]}
                     {portfolioData.profile.name.split(' ')[1] && (
                         <>
                             <br />
-                            <span style={{ 
-                                color: '#2a1f0f', 
+                            <span style={{
+                                color: '#2a1f0f',
                                 textShadow: '0 4px 28px rgba(0,0,0,0.75)',
                                 WebkitTextStroke: '0.4px rgba(150,130,100,0.15)'
                             }}>
@@ -57,7 +55,7 @@ const sectionsData = [
     {
         id: 'about',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📂</div>
                     <h2 className="text-3xl font-black mb-6 tracking-tight uppercase text-off-white">
@@ -80,21 +78,13 @@ const sectionsData = [
     {
         id: 'skills',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
-                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
-                    <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">💡</div>
-                    <h2 className="text-3xl font-black mb-8 tracking-tight text-accent uppercase">Expertise</h2>
-                    <div className="flex-1 w-full pb-4">
-                        <SkillsGrid data={portfolioData.sections.skills} />
-                    </div>
-                </div>
-            </div>
-        )
+            <SkillsSection data={portfolioData.sections.skills} variant="mobile" />
+        ),
     },
     {
         id: 'projects',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">💻</div>
                     <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
@@ -110,7 +100,7 @@ const sectionsData = [
     {
         id: 'contact',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
                     <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📞</div>
                     <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
@@ -129,7 +119,6 @@ export default function MobileLayout() {
     const scrollContainerRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    // Track scroll position to update dots
     useEffect(() => {
         const container = scrollContainerRef.current;
         if (!container) return;
@@ -153,13 +142,12 @@ export default function MobileLayout() {
         const containerWidth = container.clientWidth;
         container.scrollTo({
             left: index * containerWidth,
-            behavior: 'auto'
+            behavior: 'smooth',
         });
     };
 
     return (
         <div className="relative h-[100dvh] w-screen bg-background overflow-hidden font-sans text-off-white theme-dark">
-            {/* Pagination Dots (Top Area) */}
             <div className="absolute top-6 left-0 right-0 z-[100] flex justify-center gap-2.5">
                 {sectionsData.map((_, i) => (
                     <button
@@ -174,11 +162,9 @@ export default function MobileLayout() {
                 ))}
             </div>
 
-            {/* Horizontal Swipe Container */}
             <div
                 ref={scrollContainerRef}
-                className="relative z-10 w-full h-[100dvh] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar"
-                style={{ scrollBehavior: 'auto' }}
+                className="relative z-10 w-full h-[100dvh] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth no-scrollbar"
             >
                 {sectionsData.map((section) => {
                     const Content = section.component;
