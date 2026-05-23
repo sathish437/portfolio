@@ -64,11 +64,8 @@ export default function SkillCard({
     isCompact = false,
 }) {
     const SkillIcon = skillIconMap[skill.icon] || Code;
-    const proficiency = skill.proficiency || 50;
     const description = skill.desc || skillDescriptions[skill.name] || categoryDescriptions[category] || "Technical skill";
-
-    // Determine card styling based on proficiency/highlight
-    const isPremium = skill.highlight || proficiency >= 80;
+    const isPremium = !!skill.highlight;
     
     const cardVariants = {
         hidden: { opacity: 0, y: 20, scale: 0.95 },
@@ -84,11 +81,46 @@ export default function SkillCard({
         }),
     };
 
-    const hoverVariants = {
-        scale: 1.03,
-        y: -3,
-        transition: { type: 'spring', stiffness: 280, damping: 28 },
-    };
+    if (isCompact) {
+        return (
+            <motion.div
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                className="relative group w-full max-w-full"
+            >
+                <div
+                    className={`relative flex items-center gap-2.5 rounded-lg border backdrop-blur-sm px-2.5 py-2 transition-colors duration-200 ${
+                        isPremium
+                            ? 'bg-accent/[0.03] border-accent/15'
+                            : 'bg-white/[0.012] border-white/[0.05]'
+                    } group-hover:border-accent/15`}
+                >
+                    <div
+                        className={`w-7 h-7 rounded-md flex items-center justify-center flex-shrink-0 ${
+                            isPremium
+                                ? 'bg-accent/15 text-accent border border-accent/15'
+                                : 'bg-white/[0.03] text-accent/50 border border-white/[0.04]'
+                        }`}
+                    >
+                        <SkillIcon className="w-3.5 h-3.5" strokeWidth={1.5} />
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                        <h3 className={`font-semibold text-xs truncate ${
+                            isPremium ? 'text-accent' : 'text-off-white/85'
+                        }`}>
+                            {skill.name}
+                        </h3>
+                        <p className="text-[10px] text-off-white/45 truncate leading-tight mt-0.5">
+                            {description}
+                        </p>
+                    </div>
+                </div>
+            </motion.div>
+        );
+    }
 
     return (
         <motion.div
@@ -96,40 +128,42 @@ export default function SkillCard({
             variants={cardVariants}
             initial="hidden"
             animate="visible"
-            whileHover={hoverVariants}
-            className="relative group h-full"
+            whileHover={{
+                scale: 1.02,
+                y: -2,
+                transition: { type: 'spring', stiffness: 280, damping: 28 },
+            }}
+            className="relative group h-full w-full"
         >
             {/* Animated Glow Background (subtle hover glow) */}
-            <div className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-15 transition-opacity duration-300 pointer-events-none ${
+            <div className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none ${
                 isPremium
-                    ? 'bg-gradient-to-r from-accent/20 to-accent/10 blur-sm'
-                    : 'bg-gradient-to-r from-accent/10 to-transparent blur-sm'
+                    ? 'bg-gradient-to-r from-accent/15 to-accent/5 blur-sm'
+                    : 'bg-gradient-to-r from-accent/8 to-transparent blur-sm'
             }`} />
 
             {/* Card Container */}
-            <div className={`relative h-full rounded-2xl border backdrop-blur-md transition-all duration-300 flex flex-col gap-3 ${
-                isCompact ? 'p-4' : 'p-5 gap-4'
-            } ${
+            <div className={`relative h-full rounded-2xl border backdrop-blur-md transition-all duration-300 flex flex-col gap-4 p-5 ${
                 isPremium
                     ? 'bg-accent/[0.04] border-accent/20 shadow-[0_4px_12px_rgba(150,130,115,0.06)]'
                     : 'bg-white/[0.015] border-white/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
-            } group-hover:border-accent/30 group-hover:shadow-[0_6px_16px_rgba(150,130,115,0.1)]`}> 
+            } group-hover:border-accent/25 group-hover:shadow-[0_4px_14px_rgba(150,130,115,0.08)]`}>
 
-                {/* Inner Gradient Overlay on Hover (highly subtle) */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+                {/* Inner Gradient Overlay on Hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none" />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-3 h-full">
                     {/* Icon */}
                     <motion.div
                         whileHover={{ scale: 1.15, rotate: 8 }}
-                        className={`transition-all duration-300 flex items-center justify-center flex-shrink-0 rounded-xl ${isCompact ? 'w-10 h-10' : 'w-12 h-12' } ${
+                        className={`transition-all duration-300 flex items-center justify-center flex-shrink-0 rounded-xl w-12 h-12 ${
                             isPremium
                                 ? 'bg-accent/20 text-accent border border-accent/20'
-                                : 'bg-white/[0.04] text-accent-light/60 border border-white/[0.05] group-hover:bg-accent/10 group-hover:text-accent group-hover:border-accent/15'
+                                : 'bg-white/[0.04] text-accent-light/60 border border-white/[0.05] group-hover:bg-accent/[0.06] group-hover:text-accent/80 group-hover:border-accent/10'
                         }`}
                     >
-                        <SkillIcon className={`${isCompact ? 'w-5 h-5' : 'w-6 h-6'}`} strokeWidth={1.5} />
+                        <SkillIcon className="w-6 h-6" strokeWidth={1.5} />
                     </motion.div>
 
                     {/* Title & Badge */}
@@ -137,14 +171,14 @@ export default function SkillCard({
                         <div className="flex-1">
                             <h3 className={`font-bold tracking-tight text-sm transition-colors ${
                                 isPremium
-                                    ? (isCompact ? 'text-accent text-sm' : 'text-accent text-base')
-                                    : (isCompact ? 'text-off-white/90 group-hover:text-accent text-sm' : 'text-off-white/90 group-hover:text-accent text-sm')
+                                    ? 'text-accent text-base'
+                                    : 'text-off-white/90 text-sm'
                             }`}>
                                 {skill.name}
                             </h3>
                         </div>
                         
-                        {!isCompact && isPremium && (
+                        {isPremium && (
                             <motion.span
                                 initial={{ scale: 0, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
@@ -160,61 +194,21 @@ export default function SkillCard({
                     <p className={`text-xs leading-snug transition-colors ${
                         isPremium
                             ? 'text-accent/80'
-                            : 'text-off-white/60 group-hover:text-off-white/70'
+                            : 'text-off-white/60'
                     }`}>
                         {description}
                     </p>
 
                     {/* Category Tag */}
-                    {!isCompact && (
-                        <div className="mt-auto pt-2">
-                            <span className={`inline-block text-[10px] px-2 py-1 rounded-full font-medium tracking-wide transition-all duration-300 ${
-                                isPremium
-                                    ? 'bg-accent/15 text-accent/90 border border-accent/30'
-                                    : 'bg-accent/8 text-accent/70 border border-accent/15 group-hover:bg-accent/12 group-hover:text-accent/80'
-                            }`}>
-                                {category}
-                            </span>
-                        </div>
-                    )}
-
-                    {/* Proficiency Bar */}
-                    {proficiency && (
-                        <div className="mt-2 pt-2 border-t border-accent/10">
-                            <div className={`relative ${isCompact ? 'h-1' : 'h-2'} w-full rounded-full bg-accent/10 border border-accent/15 overflow-hidden`}>
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${proficiency}%` }}
-                                    transition={{
-                                        duration: 1.2,
-                                        delay: 0.4 + index * 0.08,
-                                        ease: [0.16, 1, 0.3, 1]
-                                    }}
-                                    className={`h-full relative rounded-full ${
-                                        isPremium
-                                            ? 'bg-gradient-to-r from-accent/70 via-accent to-accent/80'
-                                            : 'bg-gradient-to-r from-accent/50 via-accent/70 to-accent/60'
-                                    }`}
-                                >
-                                    {/* Shimmer Effect */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full"
-                                        initial={{ x: '-100%' }}
-                                        animate={{ x: '200%' }}
-                                        transition={{
-                                            duration: 2.5,
-                                            repeat: Infinity,
-                                            ease: 'linear',
-                                            repeatDelay: 1.5
-                                        }}
-                                    />
-                                </motion.div>
-                            </div>
-                            <p className="text-[9px] text-accent/60 mt-1 text-right">
-                                {proficiency}%
-                            </p>
-                        </div>
-                    )}
+                    <div className="mt-auto pt-2">
+                        <span className={`inline-block text-[10px] px-2 py-1 rounded-full font-medium tracking-wide ${
+                            isPremium
+                                ? 'bg-accent/15 text-accent/90 border border-accent/30'
+                                : 'bg-accent/8 text-accent/70 border border-accent/15'
+                        }`}>
+                            {category}
+                        </span>
+                    </div>
                 </div>
             </div>
         </motion.div>

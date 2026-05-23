@@ -14,11 +14,29 @@ const categoryIcons = {
     "Tools & DevOps": Wrench,
 };
 
-export default function SkillCategorySection({ category, index, columns = 3 }) {
+const skillListVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.07,
+            delayChildren: 0.06,
+        },
+    },
+};
+
+const skillItemVariants = {
+    hidden: { opacity: 0, y: 14 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+    },
+};
+
+export default function SkillCategorySection({ category, index }) {
     const [open, setOpen] = useState(false);
     const containerRef = useRef(null);
     const CategoryIcon = categoryIcons[category.name] || Code2;
-    const gridCols = columns === 2 ? 'grid-cols-2' : 'grid-cols-3';
 
     const toggle = () => {
         setOpen((s) => !s);
@@ -102,17 +120,17 @@ export default function SkillCategorySection({ category, index, columns = 3 }) {
                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                             style={{ overflow: 'hidden' }}
                         >
-                            <div className={`grid ${gridCols} gap-3 p-6 pt-4 [&>*]:min-w-0`}>
+                            <motion.div
+                                variants={skillListVariants}
+                                initial="hidden"
+                                animate="visible"
+                                className="flex flex-col gap-2 px-4 pb-4 pt-3 w-full"
+                            >
                                 {category.items.map((skill, skillIndex) => (
                                     <motion.div
                                         key={skill.name}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{
-                                            delay: skillIndex * 0.05,
-                                            duration: 0.3,
-                                            ease: [0.16, 1, 0.3, 1],
-                                        }}
+                                        variants={skillItemVariants}
+                                        className="w-full"
                                     >
                                         <SkillCard
                                             skill={skill}
@@ -122,7 +140,7 @@ export default function SkillCategorySection({ category, index, columns = 3 }) {
                                         />
                                     </motion.div>
                                 ))}
-                            </div>
+                            </motion.div>
                         </motion.div>
                     )}
                 </AnimatePresence>
