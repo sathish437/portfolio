@@ -1,180 +1,238 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, Sparkles } from 'lucide-react';
+import {
+    Terminal, ExternalLink, ChevronDown, Sparkles,
+    CheckCircle2, Layers, Radio
+} from 'lucide-react';
 import { portfolioData } from '../../utils/portfolioData';
-import ProjectCard from './ProjectCard';
-import { BackgroundBlobs } from './BackgroundBlobs';
-import category1Img from '../../img/category1.png';
-import category2Img from '../../img/category2.png';
-import category3Img from '../../img/category3.png';
-import category4Img from '../../img/category4.png';
-import category5Img from '../../img/category5.png';
 
-export default function CategorizedProjects({ defaultOpen = false }) {
-    const [activeCategoryId, setActiveCategoryId] = useState(defaultOpen ? portfolioData.sections.projects[0]?.categoryName : null);
-    const [selectedProjectId, setSelectedProjectId] = useState(null);
+// ─── Accent colors per category ────────────────────────────────────────────
+const catAccents = [
+    { dot: 'bg-cyan-400',    text: 'text-cyan-400',    border: 'border-cyan-400/30',  glow: 'shadow-[0_0_18px_rgba(0,242,254,0.12)]', bg: 'bg-cyan-400/[0.03]'   },
+    { dot: 'bg-violet-400',  text: 'text-violet-400',  border: 'border-violet-400/30', glow: 'shadow-[0_0_18px_rgba(139,92,246,0.12)]', bg: 'bg-violet-400/[0.03]' },
+    { dot: 'bg-sky-400',     text: 'text-sky-400',     border: 'border-sky-400/30',    glow: 'shadow-[0_0_18px_rgba(56,189,248,0.12)]',  bg: 'bg-sky-400/[0.03]'    },
+    { dot: 'bg-indigo-400',  text: 'text-indigo-400',  border: 'border-indigo-400/30', glow: 'shadow-[0_0_18px_rgba(99,102,241,0.12)]', bg: 'bg-indigo-400/[0.03]' },
+];
 
+// ─── Status config ─────────────────────────────────────────────────────────
+const statusStyles = {
+    Live:     { dot: 'bg-emerald-400', text: 'text-emerald-400', label: 'Live'     },
+    Beta:     { dot: 'bg-amber-400',   text: 'text-amber-400',   label: 'Beta'     },
+    Archived: { dot: 'bg-white/30',    text: 'text-white/40',    label: 'Archived' },
+};
+
+// ─── Single accordion project row ──────────────────────────────────────────
+function ProjectRow({ project, isOpen, onToggle, accent }) {
+    const status = statusStyles[project.status] || statusStyles.Live;
+
+    return (
+        <div className="w-full">
+            {/* Collapsed name row — always visible */}
+            <motion.button
+                onClick={onToggle}
+                layout
+                className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all duration-300 rounded-xl border group select-none
+                    ${isOpen
+                        ? `${accent.bg} ${accent.border} ${accent.glow}`
+                        : 'bg-transparent border-transparent hover:bg-white/[0.02] hover:border-white/[0.06]'
+                    }`}
+            >
+                {/* Status dot */}
+                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isOpen ? accent.dot : 'bg-white/20'} transition-colors`} />
+
+                {/* Project name */}
+                <span className={`flex-1 text-[12px] font-bold tracking-tight transition-colors duration-200 ${
+                    isOpen ? 'text-white' : 'text-white/60 group-hover:text-white/90'
+                }`}>
+                    {project.name}
+                </span>
+
+                {/* Featured badge */}
+                {project.featured && (
+                    <Sparkles size={10} className={`shrink-0 ${isOpen ? accent.text : 'text-white/20'} transition-colors`} />
+                )}
+
+                {/* Chevron */}
+                <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    className="shrink-0"
+                >
+                    <ChevronDown size={13} className={`${isOpen ? accent.text : 'text-white/20'} transition-colors`} />
+                </motion.div>
+            </motion.button>
+
+            {/* Expanded details — smooth height animation */}
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                    >
+                        <motion.div
+                            initial={{ y: 10, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -8, opacity: 0 }}
+                            transition={{ duration: 0.35, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            className={`mx-2 mt-1 mb-2 p-4 rounded-xl border backdrop-blur-md
+                                bg-white/[0.015] border-white/[0.06]`}
+                        >
+                            {/* Top row: type + status */}
+                            <div className="flex items-center justify-between gap-2 mb-3">
+                                {project.type && (
+                                    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md border text-[8.5px] font-black uppercase tracking-widest
+                                        bg-white/[0.03] border-white/[0.06] ${accent.text}`}>
+                                        <Layers size={8} strokeWidth={2.5} />
+                                        {project.type}
+                                    </span>
+                                )}
+                                <span className={`inline-flex items-center gap-1.5 text-[8.5px] font-black uppercase tracking-wider ${status.text}`}>
+                                    <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${status.dot}`} />
+                                    {status.label}
+                                </span>
+                            </div>
+
+                            {/* Description */}
+                            {project.description && (
+                                <p className="text-[10.5px] text-white/45 leading-relaxed mb-3 font-medium">
+                                    {project.description}
+                                </p>
+                            )}
+
+                            {/* Feature bullets */}
+                            {project.features && project.features.length > 0 && (
+                                <ul className="flex flex-col gap-1 mb-3">
+                                    {project.features.map((f, fi) => (
+                                        <li key={fi} className="flex items-start gap-2">
+                                            <CheckCircle2 size={10} className={`mt-0.5 shrink-0 ${accent.text} opacity-60`} strokeWidth={2.5} />
+                                            <span className="text-[10px] text-white/50 leading-snug font-medium">{f}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+
+                            {/* Tech stack chips */}
+                            {project.stack && project.stack.length > 0 && (
+                                <div className="flex flex-wrap gap-1.5 mb-3">
+                                    {project.stack.map((tech, ti) => (
+                                        <span key={ti} className="text-[8.5px] font-mono font-bold px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-white/40">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {/* Action links */}
+                            <div className="flex items-center gap-2 pt-2 border-t border-white/[0.05]">
+                                {project.links?.live && (
+                                    <a
+                                        href={project.links.live}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] transition-all duration-300
+                                            bg-gradient-to-r from-cyan-500 to-blue-500 text-black hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]`}
+                                    >
+                                        <ExternalLink size={10} strokeWidth={2.5} />
+                                        View Live
+                                    </a>
+                                )}
+                                {project.links?.github && (
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.04] border border-white/[0.06] text-white/50 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
+                                    >
+                                        Source
+                                    </a>
+                                )}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}
+
+// ─── Main CategorizedProjects ──────────────────────────────────────────────
+export default function CategorizedProjects() {
     const categories = portfolioData.sections.projects;
+    const totalProjects = categories.reduce((a, c) => a + c.projects.length, 0);
 
-    // Map category names to imported images
-    const categoryImages = {
-        'Core Web Projects (HTML, CSS, JavaScript)': category1Img,
-        'Modern UI & API Projects (Tailwind, JavaScript, REST API)': category2Img,
-        'Advanced Frontend Apps (React & Tailwind)': category3Img,
-        'WEB PLATFORM BUILT WITH SPRING BOOT': category4Img,
-        'Full Stack Apps (Render Cloud)': category5Img,
-    };
+    // Track which project is expanded — only one at a time across all categories
+    const [expandedKey, setExpandedKey] = useState(null);
 
-    const toggleCategory = (catName) => {
-        setActiveCategoryId(activeCategoryId === catName ? null : catName);
-        setSelectedProjectId(null);
-    };
-
-    const toggleProject = (projectId) => {
-        setSelectedProjectId(selectedProjectId === projectId ? null : projectId);
+    const toggleProject = (key) => {
+        setExpandedKey(prev => (prev === key ? null : key));
     };
 
     return (
-        <div className="relative w-full space-y-6">
-            <div className="relative z-content space-y-6">
-                {categories.map((category, index) => {
-                    const isActive = activeCategoryId === category.categoryName;
+        <div className="w-full flex flex-col gap-5 text-left">
+
+            {/* ── Section header ── */}
+            <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-4 border-b border-white/[0.06] pb-4"
+            >
+                <div className="w-11 h-11 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent shrink-0">
+                    <Terminal size={20} className="animate-pulse" />
+                </div>
+                <div>
+                    <h2 className="text-2xl font-black uppercase tracking-tight text-white font-outfit">
+                        Deploy <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-purple">Registry</span>
+                    </h2>
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/30 mt-0.5">
+                        {totalProjects} live projects · {categories.length} stacks
+                    </p>
+                </div>
+            </motion.div>
+
+            {/* ── Accordion list by category ── */}
+            <div className="flex flex-col gap-5 pr-0.5 pb-4">
+                {categories.map((cat, catIdx) => {
+                    if (cat.projects.length === 0) return null;
+                    const accent = catAccents[catIdx % catAccents.length];
 
                     return (
                         <motion.div
-                            key={category.categoryName}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1, duration: 0.4 }}
-                            className={`group relative rounded-2xl overflow-hidden ${
-                                index !== categories.length - 1 ? 'pb-6 border-b border-accent/10' : ''
-                            }`}
+                            key={cat.categoryName}
+                            initial={{ opacity: 0, y: 18 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ delay: catIdx * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                            className="flex flex-col gap-0.5"
                         >
-                            {/* Category Header with Image Inside */}
-                            <motion.button
-                                onClick={() => toggleCategory(category.categoryName)}
-                                whileHover={{ scale: 1.01 }}
-                                className={`w-full flex flex-col p-4 sm:p-5 rounded-2xl transition-all duration-300 border relative overflow-hidden ${
-                                    isActive
-                                        ? 'bg-accent/10 border-accent/40 shadow-lg shadow-accent/5'
-                                        : 'bg-white/[0.02] border-accent/10 hover:bg-white/[0.04] hover:border-accent/25'
-                                }`}
-                            >
-                                {/* Top Image */}
-                                {categoryImages[category.categoryName] && (
-                                    <div className="relative w-full h-40 sm:h-48 rounded-xl overflow-hidden border-2 border-accent/30 mb-4 group/img">
-                                        <img
-                                            src={categoryImages[category.categoryName]}
-                                            alt={category.categoryName}
-                                            className="w-full h-full object-contain bg-dark/50 transition-transform duration-300 ease-in-out group-hover:scale-[1.03]"
-                                        />
-                                        {/* Gradient overlay for text visibility */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-dark/20 to-transparent opacity-60" />
-                                        {/* Hover overlay */}
-                                        <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/10 transition-colors duration-300" />
-                                    </div>
-                                )}
+                            {/* Category header label */}
+                            <div className="flex items-center gap-2 px-3 mb-1">
+                                <span className={`w-2 h-2 rounded-full ${accent.dot}`} />
+                                <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${accent.text}`}>
+                                    {cat.categoryName}
+                                </span>
+                                <span className="text-[8px] font-mono text-white/20 ml-auto">
+                                    {cat.projects.length} nodes
+                                </span>
+                            </div>
 
-                                {/* Content Section */}
-                                <div className="relative z-10 flex items-center justify-between text-left">
-                                    <div className="flex flex-col min-w-0">
-                                        <div className="flex items-center gap-2 flex-wrap">
-                                            {isActive && (
-                                                <motion.div
-                                                    animate={{ rotate: 360 }}
-                                                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                                                    className="text-accent shrink-0"
-                                                >
-                                                    <Sparkles size={14} />
-                                                </motion.div>
-                                            )}
-                                            <span className={`text-sm font-black uppercase tracking-wider transition-colors truncate ${
-                                                isActive ? 'text-accent' : 'text-off-white/90 group-hover:text-accent'
-                                            }`}>
-                                                {category.categoryName}
-                                            </span>
-                                        </div>
-                                        <p className="text-xs text-off-white/60 font-medium leading-relaxed mt-1">
-                                            {category.categoryDescription}
-                                        </p>
-                                    </div>
-
-                                    {/* Chevron Icon */}
-                                    <motion.div
-                                        animate={{
-                                            rotate: isActive ? 90 : 0,
-                                            scale: isActive ? 1.2 : 1,
-                                        }}
-                                        className={`shrink-0 ml-4 transition-colors ${
-                                            isActive ? 'text-accent' : 'text-accent/40 group-hover:text-accent/60'
-                                        }`}
-                                    >
-                                        <ChevronRight size={22} />
-                                    </motion.div>
-                                </div>
-                            </motion.button>
-
-                            {/* Projects List Container */}
-                            <AnimatePresence>
-                                {isActive && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="pt-4 pb-2 px-2 space-y-3">
-                                            {/* Project list - same for mobile and desktop */}
-                                            {category.projects.map((project, idx) => (
-                                                <motion.div
-                                                    key={project.id}
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    animate={{ opacity: 1, x: 0 }}
-                                                    transition={{ delay: idx * 0.08, duration: 0.4 }}
-                                                >
-                                                    {/* Project Title Button */}
-                                                    <button
-                                                        onClick={() => toggleProject(project.id)}
-                                                        className={`w-full text-left px-4 py-3 rounded-lg text-sm font-bold transition-all flex items-center gap-3 border ${
-                                                            selectedProjectId === project.id
-                                                                ? 'text-accent bg-accent/15 border-accent/40'
-                                                                : 'text-off-white/70 hover:text-accent hover:bg-white/[0.05] border-accent/10'
-                                                        }`}
-                                                    >
-                                                        <motion.div
-                                                            animate={{
-                                                                scale: selectedProjectId === project.id ? 1.3 : 1,
-                                                                backgroundColor: selectedProjectId === project.id ? 'rgba(150, 130, 115, 0.6)' : 'rgba(255, 255, 255, 0.1)',
-                                                            }}
-                                                            className="w-2 h-2 rounded-full flex-shrink-0"
-                                                        />
-                                                        <span className="flex-1 truncate">{project.name}</span>
-                                                       
-                                                    </button>
-
-                                                    {/* Project Details Card */}
-                                                    <AnimatePresence>
-                                                        {selectedProjectId === project.id && (
-                                                            <motion.div
-                                                                initial={{ height: 0, opacity: 0 }}
-                                                                animate={{ height: 'auto', opacity: 1 }}
-                                                                exit={{ height: 0, opacity: 0 }}
-                                                                transition={{ duration: 0.3 }}
-                                                                className="overflow-hidden"
-                                                            >
-                                                                <div className="pt-3 mb-3 pl-2 pr-1">
-                                                                    <ProjectCard project={project} index={0} isMobile={true} />
-                                                                </div>
-                                                            </motion.div>
-                                                        )}
-                                                    </AnimatePresence>
-                                                </motion.div>
-                                            ))}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                            {/* Project name rows */}
+                            {cat.projects.map((project) => {
+                                const key = `${catIdx}-${project.id}`;
+                                return (
+                                    <ProjectRow
+                                        key={key}
+                                        project={project}
+                                        isOpen={expandedKey === key}
+                                        onToggle={() => toggleProject(key)}
+                                        accent={accent}
+                                    />
+                                );
+                            })}
                         </motion.div>
                     );
                 })}
@@ -182,4 +240,3 @@ export default function CategorizedProjects({ defaultOpen = false }) {
         </div>
     );
 }
-

@@ -4,7 +4,7 @@ export const portfolioData = {
     profile: {
         name: "Sathish",
         role: "Java Full Stack Developer",
-        intro: "Building structured web applications from frontend to backend.",
+        intro: "Architecting high-performance, structured web solutions from clean backend API endpoints to polished interactive user interfaces.",
         status: "Available for new projects",
         social: {
             github: "https://github.com/sathish437",
@@ -15,66 +15,71 @@ export const portfolioData = {
     sections: {
         about: {
             title: "About",
-            intro: "I am a Java Full Stack Developer with hands-on experience in building web applications from frontend to backend. I focus on structured projects and applying my technical and problem-solving skills to real-world applications.",
-            techHighlight: "Skilled in Java, Spring Boot, React, and MySQL.",
-            statement: "Focused on building scalable applications and solving real-world problems through clean and efficient code."
+            intro: "Java Full Stack Developer passionate about building scalable web applications using Spring Boot, React.js, and modern web technologies. Focused on creating clean backend APIs and responsive user experiences.",
+            techHighlight: "Skilled in Java, Spring Boot, Microservices, Hibernate/JPA, React.js, MySQL, and PostgreSQL.",
+            statement: "Committed to engineering scalable web infrastructure, optimizing query performances, and translating complex technical requirements into user-friendly digital tools."
         },
         skills: {
             title: "Skills",
             categories: [
                 {
                     name: "Programming Languages",
-                    icon: "Code2",
-                    color: "cool",
                     items: [
-                        { name: "Java", desc: "OOP, Collections", icon: "Code", highlight: true, proficiency: 85 },
-                        { name: "Python", desc: "basics", icon: "Python", highlight: false, proficiency: 75 }
+                        { name: "Java", highlight: true },
+                        { name: "JavaScript", highlight: true },
+                        { name: "SQL" }
                     ]
                 },
                 {
-                    name: "Frontend",
-                    icon: "Layout",
-                    color: "cool",
+                    name: "Frontend Development",
                     items: [
-                        { name: "HTML5", icon: "Code", highlight: false, proficiency: 90 },
-                        { name: "CSS3", icon: "Palette", highlight: false, proficiency: 85 },
-                        { name: "JavaScript", desc: "ES6 basics", icon: "Zap", highlight: false, proficiency: 75 },
-                        { name: "Tailwind CSS", icon: "Wind", highlight: false, proficiency: 88 },
-                        { name: "React.js", desc: "Components, Hooks, API Integration", icon: "Sparkles", highlight: true, proficiency: 82 }
+                        { name: "React.js", highlight: true },
+                        { name: "HTML5" },
+                        { name: "CSS3" },
+                        { name: "Tailwind CSS" }
                     ]
                 },
                 {
-                    name: "Backend",
-                    icon: "Server",
-                    color: "cool",
+                    name: "Backend Development",
                     items: [
-                        { name: "Spring Boot", desc: "REST API Development", icon: "Leaf", highlight: true, proficiency: 80 },
-                        { name: "Hibernate / JPA", icon: "Database", highlight: false, proficiency: 75 },
-                        { name: "Spring MVC", icon: "Layers", highlight: false, proficiency: 78 },
-                        { name: "RESTful APIs", icon: "Globe", highlight: true, proficiency: 85 },
-                        { name: "Spring Data JPA", icon: "Database", highlight: false, proficiency: 75 }
+                        { name: "Spring Boot", highlight: true },
+                        { name: "Hibernate / JPA", highlight: true },
+                        { name: "RESTful APIs" },
+                        { name: "Spring Security" },
+                        { name: "Microservices", highlight: true }
                     ]
                 },
                 {
-                    name: "Database",
-                    icon: "Database",
-                    color: "cool",
+                    name: "Databases",
                     items: [
-                        { name: "MySQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: true, proficiency: 82 },
-                        { name: "PostgreSQL", desc: "CRUD Operations, Relationships", icon: "Database", highlight: false, proficiency: 78 }
+                        { name: "MySQL", highlight: true },
+                        { name: "PostgreSQL" }
                     ]
                 },
                 {
-                    name: "Tools & DevOps",
-                    icon: "Wrench",
-                    color: "cool",
+                    name: "Cloud & Development Tools",
                     items: [
-                        { name: "GitHub", icon: "Github", highlight: true, proficiency: 80 },
-                        { name: "Postman", icon: "FileText", highlight: true, proficiency: 85 },
-                        { name: "Maven", icon: "Package", highlight: false, proficiency: 75 },
-                        { name: "Swagger", icon: "FileText", highlight: false, proficiency: 70 },
-                        { name: "Docker", icon: "Box", highlight: false, proficiency: 60 },
-                        { name: "CI/CD (GitHub Actions)", icon: "RefreshCw", highlight: false, proficiency: 60 }
+                        { name: "Git", highlight: true },
+                        { name: "GitHub" },
+                        { name: "Maven" },
+                        { name: "Docker" },
+                        { name: "IntelliJ IDEA" },
+                        { name: "VS Code" }
+                    ]
+                },
+                {
+                    name: "API & Testing Tools",
+                    items: [
+                        { name: "Postman", highlight: true },
+                        { name: "Swagger / OpenAPI" }
+                    ]
+                },
+                {
+                    name: "Architecture & Concepts",
+                    items: [
+                        { name: "API Gateway", highlight: true },
+                        { name: "Service Discovery (Eureka)" },
+                        { name: "Load Balancing" }
                     ]
                 }
             ]
@@ -84,8 +89,9 @@ export const portfolioData = {
             title: "Contact",
             methods: [
                 { id: "linkedin", label: "LinkedIn", value: "linkedin.com/in/sathish-duraisamy-a56999298", link: "https://www.linkedin.com/in/sathish-duraisamy-a56999298/" },
-                { id: "github", label: "GitHub", value: "github.com/sathish437", link: "https://github.com/sathish437" }
+                { id: "github", label: "GitHub", value: "github.com/sathish437", link: "https://github.com/sathish437" },
+                { id: "email", label: "Email", value: "duraisamysathish4@gmail.com", link: "mailto:duraisamysathish4@gmail.com" }
             ]
         }
     }
-}
+};

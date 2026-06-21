@@ -10,45 +10,49 @@ export default function DesktopIcon({ id, label, icon }) {
     return (
         <motion.div
             onClick={() => openWindow(id)}
-            className="flex flex-col items-center gap-0 cursor-pointer group"
-            whileHover={{ y: -5, rotateX: 5, rotateY: 5, transition: { duration: 0.2 } }}
-            whileTap={{ scale: 0.96 }}
+            className="flex flex-col items-center gap-1.5 cursor-pointer group pointer-events-auto"
+            whileHover={{ y: -4, rotateX: 6, rotateY: 6, transition: { duration: 0.2 } }}
+            whileTap={{ scale: 0.94 }}
             animate={isMatch ? {
-                scale: 1.4,
+                scale: 1.25,
                 zIndex: 100,
             } : { scale: 1 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
         >
-            {/* Icon - image only, no background */}
+            {/* Circular Ring Wrap with dynamic neon glows on hover */}
             <div className={`
-                relative  rounded-[30px] flex items-center justify-center
-                transition-all duration-300
+                w-14 h-14 rounded-2xl flex items-center justify-center
+                border border-white/5 bg-white/[0.015] backdrop-blur-md
+                transition-all duration-300 relative overflow-hidden shadow-inner-glow
                 ${isMatch
-                    ? 'ring-2 ring-white/60 rounded-[20px]'
-                    : 'group-hover:scale-105 group-hover:-translate-y-1'
+                    ? 'border-accent shadow-glow-cyan scale-105'
+                    : 'group-hover:border-accent/40 group-hover:shadow-glow-cyan-sm'
                 }
             `}>
+                {/* Background glow trail */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
                 {typeof icon === 'string' && !icon.startsWith('data') && !icon.startsWith('/') && !icon.startsWith('http')
-                    ? <span className="relative z-10 text-3xl">{icon}</span>
-                    : <img src={icon} alt={label} className="relative z-10 w-16 h-16 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.2)]" />
+                    ? <span className="relative z-10 text-2xl">{icon}</span>
+                    : <img src={icon} alt={label} className="relative z-10 w-8 h-8 object-contain filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.15)] group-hover:scale-105 transition-transform" />
                 }
 
-                {/* Search match glow */}
+                {/* Pulsing indicator under search matching */}
                 {isMatch && (
                     <motion.div
-                        animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.4, 0.15] }}
-                        transition={{ duration: 2.5, repeat: Infinity }}
-                        className="absolute inset-x-2 bottom-0 h-1 bg-white/80 blur-sm rounded-full pointer-events-none"
+                        animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute inset-0 bg-accent/10 pointer-events-none rounded-2xl"
                     />
                 )}
             </div>
 
-            {/* Dark readable label */}
+            {/* Glowing legible labels */}
             <span className={`
-                text-[11px] font-bold tracking-wide px-4 py-2 rounded-md transition-all duration-300
+                text-[9.5px] font-black uppercase tracking-widest px-2.5 py-1 rounded-md transition-all duration-300 font-mono
                 ${isMatch
-                    ? 'text-white bg-black/30 backdrop-blur-sm'
-                    : 'text-gray-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]'
+                    ? 'text-accent bg-accent/10 border border-accent/20 shadow-glow-cyan-sm'
+                    : 'text-gray-text-muted group-hover:text-off-white'
                 }
             `}>
                 {label}

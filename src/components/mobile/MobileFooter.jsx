@@ -22,8 +22,8 @@ export default function MobileFooter() {
     ];
 
     return (
-        <div className="fixed border-t-2 rounded-t-2xl border-accent-light bottom-0 left-0 right-0 z-[5000] pb-safe bg-background/95 backdrop-blur-2xl border-t border-white/[0.05] shadow-[0_-10px_30px_rgba(0,0,0,0.4)]">
-            <div className="py-3 px-10 max-w-sm mx-auto flex justify-between items-center">
+        <div className="fixed bottom-0 left-0 right-0 z-[5000] pb-safe bg-[#09090b]/80 backdrop-blur-xl border-t border-white/[0.05] shadow-[0_-10px_30px_rgba(0,0,0,0.6)]">
+            <div className="py-2.5 px-10 max-w-sm mx-auto flex justify-between items-center">
                 {socials.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -33,9 +33,9 @@ export default function MobileFooter() {
                             target={social.name !== 'Email' ? "_blank" : "_self"}
                             rel="noopener noreferrer"
                             aria-label={social.name}
-                            className="flex items-center justify-center p-2 text-white/50 hover:text-accent active:scale-95 transition-all duration-300 relative"
+                            className="flex items-center justify-center p-2.5 text-gray-text-muted hover:text-accent active:scale-95 transition-all duration-300"
                         >
-                            <Icon size={24} strokeWidth={1.5} />
+                            <Icon size={20} strokeWidth={1.5} />
                         </a>
                     );
                 })}

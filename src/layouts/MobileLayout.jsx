@@ -1,52 +1,60 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { portfolioData } from '../utils/portfolioData';
-import CategorizedProjects from '../components/shared/CategorizedProjects';
+import AboutSection from '../components/shared/AboutSection';
 import SkillsSection from '../components/shared/skills/SkillsSection';
+import CategorizedProjects from '../components/shared/CategorizedProjects';
 import ContactSection from '../components/shared/ContactSection';
-import bgImage from '../bg.jpeg';
+import FuturisticBackground from '../components/backgrounds/FuturisticBackground';
 import MobileFooter from '../components/mobile/MobileFooter';
+import { motion } from 'framer-motion';
+
+const nameChars = portfolioData.profile.name.split('');
 
 const sectionsData = [
     {
         id: 'intro',
         component: () => (
-            <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center p-8 pt-[280px] text-center overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-cover bg-center scale-105 pointer-events-none -z-10"
-                    style={{ backgroundImage: `url(${bgImage})` }}
-                >
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.45)_100%)]" />
-                    <div className="absolute inset-0 bg-background/35" />
+            <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center p-6 text-center overflow-hidden">
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <FuturisticBackground />
                 </div>
 
-                <h1 className="text-5xl font-black mb-3 leading-none tracking-tighter uppercase drop-shadow-md relative z-10"
-                    style={{
-                        fontFamily: "'Outfit', sans-serif",
-                        color: '#1a1208',
-                        textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 0 50px rgba(120,100,70,0.18)',
-                        WebkitTextStroke: '0.6px rgba(150,130,100,0.2)'
-                    }}
-                >
-                    {portfolioData.profile.name.split(' ')[0]}
-                    {portfolioData.profile.name.split(' ')[1] && (
-                        <>
-                            <br />
-                            <span style={{
-                                color: '#2a1f0f',
-                                textShadow: '0 4px 28px rgba(0,0,0,0.75)',
-                                WebkitTextStroke: '0.4px rgba(150,130,100,0.15)'
-                            }}>
-                                {portfolioData.profile.name.split(' ')[1]}
-                            </span>
-                        </>
-                    )}
-                </h1>
-                <p className="text-[11px] font-black uppercase tracking-[0.6em] mb-4 relative z-10  bg-clip-text bg-gradient-to-br from-accent-light via-accent to-accent drop-shadow-[0_0_15px_rgba(150,130,115,0.4)]">{portfolioData.profile.role}</p>
+                <div className="relative z-10 flex flex-col items-center gap-2 max-w-sm">
+                    {/* Glowing system tag */}
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 border border-accent/25 mb-4 shadow-glow-cyan-sm animate-pulse">
+                        <span className="w-1 h-1 rounded-full bg-accent" />
+                        <span className="text-[8px] font-black uppercase tracking-[0.2em] text-accent">Active Node</span>
+                    </div>
 
-                <div className="mt-12 flex flex-col items-center gap-3 animate-pulse relative z-10">
-                    <div className="flex flex-col items-center gap-2 text-white px-5 py-2.5 ">
-                        <span className="text-[10px] font-black uppercase tracking-widest">Swipe Left</span>
-                        <div className="animate-bounce" style={{ animationDuration: '1.5s' }}><span className="text-lg leading-none">→</span></div>
+                    <h1 className="text-6xl font-black mb-1 leading-none tracking-tighter uppercase font-outfit text-off-white flex">
+                        {nameChars.map((char, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                transition={{ duration: 0.6, delay: 0.2 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                                className="glow-text-cyan text-off-white"
+                                style={{
+                                    display: 'inline-block',
+                                }}
+                            >
+                                {char === ' ' ? '\u00A0' : char}
+                            </motion.span>
+                        ))}
+                    </h1>
+                    
+                    <p className="text-[9.5px] font-black uppercase tracking-[0.45em] mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-purple drop-shadow-md">
+                        {portfolioData.profile.role}
+                    </p>
+
+                    {/* Quick description */}
+                    <p className="text-xs text-gray-text-muted leading-relaxed mb-10 px-4 font-medium">
+                        {portfolioData.profile.intro}
+                    </p>
+
+                    <div className="flex flex-col items-center gap-2 animate-bounce mt-6 text-accent">
+                        <span className="text-[9px] font-black uppercase tracking-[0.25em] text-gray-text-muted">Swipe Left</span>
+                        <span className="text-lg leading-none">→</span>
                     </div>
                 </div>
             </div>
@@ -55,22 +63,9 @@ const sectionsData = [
     {
         id: 'about',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
-                    <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📂</div>
-                    <h2 className="text-3xl font-black mb-6 tracking-tight uppercase text-off-white">
-                        About <span className="text-accent">Me</span>
-                    </h2>
-                    <p className="text-white/80 leading-snug text-[13px] mb-6 font-medium">
-                        {portfolioData.sections.about.intro}
-                    </p>
-                    <div className="inline-block bg-accent/15 border border-accent/30 rounded-xl px-4 py-2 mb-6 w-max shadow-sm">
-                        <p className="text-accent text-xs font-black tracking-wide">{portfolioData.sections.about.techHighlight}</p>
-                    </div>
-                    <div className="bg-white/[0.02] border border-white/[0.05] p-6 rounded-2xl mt-auto">
-                        <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-accent mb-3 text-left">Mission</h3>
-                        <p className="text-white/60 text-xs leading-relaxed text-left">{portfolioData.sections.about.statement}</p>
-                    </div>
+                    <AboutSection variant="mobile" />
                 </div>
             </div>
         )
@@ -78,21 +73,19 @@ const sectionsData = [
     {
         id: 'skills',
         component: () => (
-            <SkillsSection data={portfolioData.sections.skills} variant="mobile" />
-        ),
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar">
+                <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
+                    <SkillsSection data={portfolioData.sections.skills} variant="mobile" />
+                </div>
+            </div>
+        )
     },
     {
         id: 'projects',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
-                    <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">💻</div>
-                    <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
-                        Work <span className="text-accent">Gallery</span>
-                    </h2>
-                    <div className="flex-1 pb-4">
-                        <CategorizedProjects />
-                    </div>
+                    <CategorizedProjects />
                 </div>
             </div>
         )
@@ -100,15 +93,9 @@ const sectionsData = [
     {
         id: 'contact',
         component: () => (
-            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar bg-background">
+            <div className="relative px-6 pb-28 pt-20 h-[100dvh] w-full overflow-y-auto scroll-smooth no-scrollbar">
                 <div className="max-w-lg mx-auto w-full flex flex-col min-h-full relative z-10">
-                    <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-2xl mb-8 shadow-lg grayscale">📞</div>
-                    <h2 className="text-3xl font-black mb-8 tracking-tight uppercase text-off-white">
-                        Let's <span className="text-accent">Sync</span>
-                    </h2>
-                    <div className="flex-1 w-full pb-4">
-                        <ContactSection data={portfolioData.sections.contact} />
-                    </div>
+                    <ContactSection data={portfolioData.sections.contact} />
                 </div>
             </div>
         )
@@ -147,21 +134,30 @@ export default function MobileLayout() {
     };
 
     return (
-        <div className="relative h-[100dvh] w-screen bg-background overflow-hidden font-sans text-off-white theme-dark">
+        <div className="relative h-[100dvh] w-screen bg-[#050505] overflow-hidden font-sans text-off-white">
+            {/* Global Dynamic Background for non-intro slides */}
+            {activeIndex !== 0 && (
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
+                    <FuturisticBackground />
+                </div>
+            )}
+
+            {/* Glowing active indicator slide dots */}
             <div className="absolute top-6 left-0 right-0 z-[100] flex justify-center gap-2.5">
                 {sectionsData.map((_, i) => (
                     <button
                         key={i}
                         onClick={() => scrollToSlide(i)}
                         className={`transition-all duration-300 rounded-full ${activeIndex === i
-                            ? 'w-6 h-1.5 bg-accent shadow-[0_0_10px_rgba(150,130,115,0.6)]'
-                            : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
+                            ? 'w-5 h-1 bg-accent shadow-glow-cyan'
+                            : 'w-1 h-1 bg-white/25 hover:bg-white/40'
                             }`}
                         aria-label={`Go to slide ${i + 1}`}
                     />
                 ))}
             </div>
 
+            {/* Snap Scrolling Slider viewport */}
             <div
                 ref={scrollContainerRef}
                 className="relative z-10 w-full h-[100dvh] flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth no-scrollbar"
@@ -179,6 +175,7 @@ export default function MobileLayout() {
                 })}
             </div>
 
+            {/* Mobile bottom footer with social anchors */}
             <MobileFooter />
         </div>
     );

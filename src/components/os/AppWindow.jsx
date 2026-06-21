@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { X, Minus } from 'lucide-react';
+import { X, Minus, Terminal } from 'lucide-react';
 import { useOS } from '../../context/OSContext';
 
 export default function AppWindow({ id, title, children }) {
@@ -17,59 +17,73 @@ export default function AppWindow({ id, title, children }) {
             dragMomentum={false}
             initial={{ opacity: 0, scale: 0.95, y: 15 }}
             animate={{
-                opacity: isMinimized ? 0 : (isActive ? 1 : 0.65),
+                opacity: isMinimized ? 0 : (isActive ? 1 : 0.8),
                 scale: isMinimized ? 0.85 : 1,
                 y: isMinimized ? 50 : 0,
             }}
             exit={{ opacity: 0, scale: 0.90, y: 20 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             onPointerDown={() => { if (!isMinimized) setActiveWindow(id); }}
             style={{
                 zIndex: isMinimized ? -1 : (isActive ? 1000 : 100),
                 pointerEvents: isMinimized ? 'none' : 'auto',
             }}
             className={`
-                absolute backdrop-blur-3xl bg-background/95
-                overflow-hidden shadow-[0_50px_140px_rgba(0,0,0,0.95)] border border-white/[0.03]
-                ${isActive && !isMinimized ? 'ring-1 ring-accent/15' : ''}
-                ${!isActive && !isMinimized ? 'grayscale-[0.8] blur-[1px]' : ''}
+                absolute backdrop-blur-3xl bg-[#09090b]/85
+                overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.85)] border
+                ${isActive && !isMinimized 
+                    ? 'border-accent/30 shadow-glow-cyan-sm ring-1 ring-accent/15' 
+                    : 'border-white/[0.05]'
+                }
+                ${!isActive && !isMinimized ? 'opacity-85' : ''}
                 ${isFullScreen
                     ? 'inset-0 w-full h-full rounded-none !transform-none flex flex-col z-[2000]'
-                    : 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] rounded-[32px]'
+                    : 'left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[590px] rounded-[24px]'
                 }
-                transition-[border-radius,width,height,inset,transform] duration-500
+                transition-[border-radius,width,height,inset,transform,border-color,box-shadow] duration-500
             `}
         >
+            {/* Soft inner glow behind content */}
             {isActive && !isFullScreen && !isMinimized && (
-                <div className="absolute -inset-32 bg-accent/3 blur-[120px] pointer-events-none -z-10" />
+                <div className="absolute -inset-32 bg-gradient-to-br from-accent/5 to-accent-purple/5 blur-[100px] pointer-events-none -z-10" />
             )}
 
-            <div className="h-12 flex-shrink-0 bg-white/[0.005] flex items-center justify-between px-7 border-b border-white/[0.015] cursor-move active:cursor-grabbing">
+            {/* Window Header */}
+            <div className="h-12 flex-shrink-0 bg-white/[0.015] flex items-center justify-between px-6 border-b border-white/[0.06] cursor-move active:cursor-grabbing select-none">
                 <div className="flex items-center gap-3">
-                    <div className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-accent shadow-[0_0_12px_rgba(150,130,115,0.7)]' : 'bg-accent-blue'}`} />
-                    <span className="text-[9px] font-black uppercase tracking-[0.6em] text-accent-light/30">{title}</span>
+                    <div className="flex items-center gap-1 text-accent">
+                        <Terminal size={11} className={isActive ? 'animate-pulse' : ''} />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.25em] text-off-white/80">
+                        {title}
+                    </span>
+                    <span className="text-[8px] font-mono text-accent-light/40 font-bold px-1.5 py-0.5 rounded bg-white/[0.03] border border-white/[0.05]">
+                        PID {Math.floor(1000 + (id.charCodeAt(0) * 8))}
+                    </span>
                 </div>
 
-                <div className="flex items-center gap-1.5">
+                {/* Window Operations controls */}
+                <div className="flex items-center gap-2">
                     <button
                         onClick={(e) => { e.stopPropagation(); toggleMinimize(id); }}
-                        className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-yellow-500/20 text-accent-light/25 hover:text-yellow-400 transition-all duration-200"
-                        title="Minimize"
+                        className="w-7 h-7 flex items-center justify-center rounded-full bg-white/[0.02] hover:bg-yellow-500/10 text-gray-text-muted hover:text-yellow-400 border border-white/[0.04] hover:border-yellow-500/25 transition-all duration-200"
+                        title="Minimize Node"
                     >
-                        <Minus size={13} />
+                        <Minus size={12} strokeWidth={2} />
                     </button>
                     <button
                         onClick={(e) => { e.stopPropagation(); closeWindow(id); }}
-                        className="w-7 h-7 flex items-center justify-center rounded-full hover:bg-red-500/20 text-accent-light/25 hover:text-red-400 transition-all duration-200"
-                        title="Close"
+                        className="w-7 h-7 flex items-center justify-center rounded-full bg-white/[0.02] hover:bg-red-500/10 text-gray-text-muted hover:text-red-400 border border-white/[0.04] hover:border-red-500/25 transition-all duration-200"
+                        title="Shutdown Connection"
                     >
-                        <X size={13} />
+                        <X size={12} strokeWidth={2} />
                     </button>
                 </div>
             </div>
 
-            <div className={`bg-black/15 p-2.5 overflow-hidden ${isFullScreen ? 'flex-1 pb-28' : ''}`}>
-                <div className={`overflow-y-auto no-scrollbar rounded-[24px] bg-smoky-black/30 w-full ${isFullScreen ? 'h-full' : 'max-h-[500px]'}`}>
+            {/* Content Container */}
+            <div className={`p-3 bg-black/10 overflow-hidden ${isFullScreen ? 'flex-1 pb-28' : ''}`}>
+                <div className={`overflow-y-auto no-scrollbar rounded-[16px] bg-[#050505]/40 w-full ${isFullScreen ? 'h-full' : 'max-h-[480px]'}`}>
                     {children}
                 </div>
             </div>
