@@ -43,7 +43,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
             </nav>
 
             <div className="mt-auto pt-8 border-t border-white/5 text-sm text-gray-500">
-                © 2024 Alex Designer
+                © 2026 Sathish Duraisamy
             </div>
         </aside>
     )

@@ -3,10 +3,10 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const OSContext = createContext();
 
 export const OSProvider = ({ children }) => {
-    const [openWindows, setOpenWindows] = useState([]);
-    const [activeWindow, setActiveWindow] = useState(null);
+    const [openWindows, setOpenWindows] = useState([{ id: 'about', minimized: false, fullscreen: false }]);
+    const [activeWindow, setActiveWindow] = useState('about');
     const [searchQuery, setSearchQuery] = useState('');
-    const [weather, setWeather] = useState({ temp: 27, city: 'Chennai' });
+    const [weather, setWeather] = useState({ temp: 27, city: '' });
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {

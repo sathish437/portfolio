@@ -52,7 +52,7 @@ export default function Hero({ onOpenWindow }) {
             {/* Massive Typography Title — per-character stagger */}
             <div className="relative group mb-3">
                 <h1
-                    className="text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-none font-outfit flex"
+                    className="text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none font-outfit flex"
                     style={{ textShadow: '0 10px 40px rgba(0,0,0,0.8)' }}
                 >
                     {nameChars.map((char, i) => (

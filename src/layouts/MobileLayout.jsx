@@ -26,7 +26,7 @@ const sectionsData = [
                         <span className="text-[8px] font-black uppercase tracking-[0.2em] text-accent">Active Node</span>
                     </div>
 
-                    <h1 className="text-6xl font-black mb-1 leading-none tracking-tighter uppercase font-outfit text-off-white flex">
+                    <h1 className="text-4xl sm:text-5xl font-black mb-1 leading-none tracking-tighter uppercase font-outfit text-off-white flex">
                         {nameChars.map((char, i) => (
                             <motion.span
                                 key={i}
@@ -42,7 +42,7 @@ const sectionsData = [
                             </motion.span>
                         ))}
                     </h1>
-                    
+
                     <p className="text-[9.5px] font-black uppercase tracking-[0.45em] mb-6 bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-purple drop-shadow-md">
                         {portfolioData.profile.role}
                     </p>

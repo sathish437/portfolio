@@ -214,6 +214,50 @@ const createProject = (url, stack, idStart, featured = false) => {
 
 export const projectCategories = [
     {
+        categoryName: 'Spring Boot Applications',
+        categoryShort: 'React + Spring Boot',
+        categoryDescription: 'Enterprise style applications built with React frontend and Spring Boot backend services.',
+        categoryImage: '/img/category4.png',
+        projects: [
+            'https://librarymanagementfrontend-ngf5.onrender.com/',
+            'https://simplereg-fe1q.onrender.com/',
+        ].map((url, i) => createProject(url, fullStack, i + 60, false)),
+    },
+    {
+        categoryName: 'Full Stack Apps',
+        categoryShort: 'Render Cloud',
+        categoryDescription: 'Production-ready full stack applications deployed on Render cloud with React frontends and Spring Boot / Node.js backends.',
+        categoryImage: '/img/category5.png',
+        projects: [
+            'https://progressoverview-1.onrender.com',
+            'https://healthsync-le87.onrender.com',
+            'https://chatbot-iwkx.onrender.com',
+            'https://ecom-5xf1.onrender.com',
+        ].map((url, i) => createProject(url, fullStack, i + 50, i < 2)),
+    },
+    {
+        categoryName: 'Advanced Frontend Apps',
+        categoryShort: 'React & Tailwind',
+        categoryDescription: 'Complex stateful applications built with React and Tailwind — showcasing advanced component architecture and state management.',
+        categoryImage: '/img/category3.png',
+        projects: [
+            'https://bill-system-67.netlify.app/',
+            'https://shopping-app-782.netlify.app/',
+            'https://jobvacancy1.onrender.com/',
+        ].map((url, i) => createProject(url, reactStack, i + 30, i < 2)),
+    },
+    {
+        categoryName: 'Modern UI & API Projects',
+        categoryShort: 'Tailwind / REST API',
+        categoryDescription: 'Data-driven web apps leveraging Tailwind CSS and external REST APIs for dynamic, visually polished user experiences.',
+        categoryImage: '/img/category2.png',
+        projects: [
+            'https://food-nutrition-2.onrender.com/',
+            'https://jokegenerator-3-j0ku.onrender.com/',
+            'https://data-science-guidence46.netlify.app/',
+        ].map((url, i) => createProject(url, tailwindStack, i + 20, i < 1)),
+    },
+    {
         categoryName: 'Core Web Projects',
         categoryShort: 'HTML / CSS / JS',
         categoryDescription: 'Foundational projects built with vanilla HTML, CSS, and JavaScript — demonstrating core web concepts, responsive layouts, and DOM manipulation.',
@@ -230,51 +274,6 @@ export const projectCategories = [
             'https://hato-gymworkouts-5347.netlify.app/',
         ].map((url, i) => createProject(url, vanillaStack, i + 10, i < 2)),
     },
-    {
-        categoryName: 'Modern UI & API Projects',
-        categoryShort: 'Tailwind / REST API',
-        categoryDescription: 'Data-driven web apps leveraging Tailwind CSS and external REST APIs for dynamic, visually polished user experiences.',
-        categoryImage: '/img/category2.jpg',
-        projects: [
-            'https://food-nutrition-2.onrender.com/',
-            'https://jokegenerator-3-j0ku.onrender.com/',
-            'https://data-science-guidence46.netlify.app/',
-        ].map((url, i) => createProject(url, tailwindStack, i + 20, i < 1)),
-    },
-    {
-        categoryName: 'Advanced Frontend Apps',
-        categoryShort: 'React & Tailwind',
-        categoryDescription: 'Complex stateful applications built with React and Tailwind — showcasing advanced component architecture and state management.',
-        categoryImage: '/img/category3.jpg',
-        projects: [
-            'https://bill-system-67.netlify.app/',
-            'https://shopping-app-782.netlify.app/',
-            'https://jobvacancy1.onrender.com/',
-        ].map((url, i) => createProject(url, reactStack, i + 30, i < 2)),
-    },
-    {
-        categoryName: 'Spring Boot Applications',
-        categoryShort: 'React + Spring Boot',
-        categoryDescription: 'Enterprise style applications built with React frontend and Spring Boot backend services.',
-        categoryImage: '/img/category6.jpg',
-        projects: [
-            'https://librarymanagementfrontend-ngf5.onrender.com/',
-            'https://simplereg-fe1q.onrender.com/',
-        ].map((url, i) => createProject(url, fullStack, i + 60, false)),
-    },
-    {
-        categoryName: 'Full Stack Apps',
-        categoryShort: 'Render Cloud',
-        categoryDescription: 'Production-ready full stack applications deployed on Render cloud with React frontends and Spring Boot / Node.js backends.',
-        categoryImage: '/img/category5.jpg',
-        projects: [
-            'https://progressoverview-1.onrender.com',
-            'https://healthsync-le87.onrender.com',
-            'https://chatbot-iwkx.onrender.com',
-            'https://ecom-5xf1.onrender.com',
-        ].map((url, i) => createProject(url, fullStack, i + 50, i < 2)),
-    },
-
 ];
 
 // Flat list for any non-categorized usage

@@ -65,10 +65,7 @@ export default function Taskbar() {
             <div className="flex items-center gap-3 w-44">
                 <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.04] transition-all hover:bg-white/[0.04] hover:border-white/10">
                     <span className="text-sm">⛅</span>
-                    <div className="flex flex-col text-left">
-                        <span className="text-[10px] font-black tracking-tight text-off-white">27°C</span>
-                        <span className="text-[7.5px] font-bold uppercase tracking-[0.25em] text-gray-text-muted">Chennai</span>
-                    </div>
+                    <span className="text-[10px] font-black tracking-tight text-off-white">{weather?.temp || 27}°C</span>
                 </div>
             </div>
 
@@ -93,7 +90,7 @@ export default function Taskbar() {
                     {openWindows.map(win => {
                         const iconSrc = appIcons[win.id];
                         const isActive = activeWindow === win.id && !win.minimized;
-                        
+
                         return (
                             <div key={win.id} className="relative group/taskicon">
                                 <button
@@ -118,7 +115,7 @@ export default function Taskbar() {
                                         <div className="absolute -bottom-[5px] w-1 h-1 rounded-full bg-accent-purple/30 group-hover/taskicon:bg-accent-purple" />
                                     )}
                                 </button>
-                                
+
                                 {/* Hover tooltips */}
                                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-[#09090b] rounded-lg text-off-white text-[9px] font-black tracking-widest shadow-xl border border-white/5 opacity-0 group-hover/taskicon:opacity-100 transition-all transform scale-95 group-hover/taskicon:scale-100 pointer-events-none whitespace-nowrap z-50">
                                     {win.id.charAt(0).toUpperCase() + win.id.slice(1)}
