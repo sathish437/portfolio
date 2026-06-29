@@ -4,6 +4,7 @@ import {
     Terminal, ExternalLink, CheckCircle2, ArrowLeft
 } from 'lucide-react';
 import { portfolioData } from '../../utils/portfolioData';
+import ProjectCard from './ProjectCard';
 
 // Import local image assets for categories
 import category1 from '../../img/category1.png';
@@ -31,6 +32,16 @@ const catAccents = [
 export default function CategorizedProjects() {
     const categories = portfolioData.sections.projects;
     const totalProjects = categories.reduce((a, c) => a + c.projects.length, 0);
+
+    // Extract flagship projects
+    const allProjects = categories.flatMap(c => c.projects);
+    const progressOverviewProject = allProjects.find(p => p.name === 'Progress Overview');
+    const healthSyncProject = allProjects.find(p => p.name === 'HealthSync');
+
+    // Filter categories to hide Spring Boot Applications and Full Stack Apps from main UI list
+    const categoriesToDisplay = categories.filter(
+        cat => cat.categoryName !== 'Spring Boot Applications' && cat.categoryName !== 'Full Stack Apps'
+    );
 
     // Browsing flow state: 'categories' | 'projects' | 'details'
     const [view, setView] = useState('categories');
@@ -69,61 +80,101 @@ export default function CategorizedProjects() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.25 }}
-                            className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4"
+                            className="flex flex-col gap-6 pb-4"
                         >
-                            {categories.map((cat, catIdx) => {
-                                const accent = catAccents[catIdx % catAccents.length];
-                                const catImg = categoryImageMap[cat.categoryName] || category5;
-
-                                return (
+                            {/* Flagship Projects Section */}
+                            <div className="flex flex-col gap-5">
+                                {progressOverviewProject && (
                                     <motion.div
-                                        key={cat.categoryName}
                                         initial={{ opacity: 0, y: 15 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: catIdx * 0.05, duration: 0.4 }}
-                                        whileHover={{ y: -3, scale: 1.01 }}
-                                        onClick={() => {
-                                            setSelectedCategory(cat);
-                                            setView('projects');
-                                        }}
-                                        className={`relative rounded-2xl border backdrop-blur-md overflow-hidden p-0 cursor-pointer select-none transition-all duration-300
-                                            bg-white/[0.015] ${accent.border} ${accent.glow} group flex flex-col h-full`}
+                                        transition={{ delay: 0.05, duration: 0.5 }}
+                                        className="flex flex-col gap-2"
                                     >
-                                        {/* Category Image Header */}
-                                        <div className="w-full h-32 overflow-hidden relative">
-                                            <img
-                                                src={catImg}
-                                                alt={cat.categoryName}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
-                                            <span className={`absolute bottom-3 left-4 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md border text-[8px] font-black uppercase tracking-widest bg-black/60 backdrop-blur-sm border-white/10 ${accent.text}`}>
-                                                {cat.categoryShort || 'Web App'}
-                                            </span>
-                                        </div>
-
-                                        {/* Category Body */}
-                                        <div className="p-4 flex flex-col gap-1.5 flex-1 justify-between bg-black/10">
-                                            <div>
-                                                <h3 className="text-xs font-black uppercase tracking-wider text-white/90">
-                                                    {cat.categoryName}
-                                                </h3>
-                                                <p className="text-[10px] leading-relaxed text-white/45 font-medium mt-1">
-                                                    {cat.categoryDescription || 'Explore our full stack solutions and applications.'}
-                                                </p>
-                                            </div>
-                                            <div className="flex justify-between items-center mt-3 pt-2 border-t border-white/[0.03]">
-                                                <span className="text-[8px] font-mono text-white/20">
-                                                    {cat.projects.length} modules
-                                                </span>
-                                                <span className={`text-[9px] font-black uppercase tracking-widest ${accent.text} group-hover:translate-x-0.5 transition-transform`}>
-                                                    Explore →
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <h3 className="text-xs font-black uppercase tracking-wider text-accent font-outfit">
+                                            Progress Overview
+                                        </h3>
+                                        <ProjectCard project={progressOverviewProject} index={0} />
                                     </motion.div>
-                                );
-                            })}
+                                )}
+
+                                {healthSyncProject && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 15 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1, duration: 0.5 }}
+                                        className="flex flex-col gap-2"
+                                    >
+                                        <h3 className="text-xs font-black uppercase tracking-wider text-accent font-outfit">
+                                            HealthSync
+                                        </h3>
+                                        <ProjectCard project={healthSyncProject} index={1} />
+                                    </motion.div>
+                                )}
+                            </div>
+
+                            {/* Separator and Remaining Categories section */}
+                            <div className="border-t border-white/[0.06] pt-5 mt-2 flex flex-col gap-4">
+                                <h4 className="text-[10px] font-black uppercase tracking-[0.25em] text-white/40">
+                                    More Project Categories
+                                </h4>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {categoriesToDisplay.map((cat, catIdx) => {
+                                        const accent = catAccents[categories.indexOf(cat) % catAccents.length];
+                                        const catImg = categoryImageMap[cat.categoryName] || category5;
+
+                                        return (
+                                            <motion.div
+                                                key={cat.categoryName}
+                                                initial={{ opacity: 0, y: 15 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: catIdx * 0.05, duration: 0.4 }}
+                                                whileHover={{ y: -3, scale: 1.01 }}
+                                                onClick={() => {
+                                                    setSelectedCategory(cat);
+                                                    setView('projects');
+                                                }}
+                                                className={`relative rounded-2xl border backdrop-blur-md overflow-hidden p-0 cursor-pointer select-none transition-all duration-300
+                                                    bg-white/[0.015] ${accent.border} ${accent.glow} group flex flex-col h-full`}
+                                            >
+                                                {/* Category Image Header */}
+                                                <div className="w-full h-32 overflow-hidden relative">
+                                                    <img
+                                                        src={catImg}
+                                                        alt={cat.categoryName}
+                                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
+                                                    <span className={`absolute bottom-3 left-4 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md border text-[8px] font-black uppercase tracking-widest bg-black/60 backdrop-blur-sm border-white/10 ${accent.text}`}>
+                                                        {cat.categoryShort || 'Web App'}
+                                                    </span>
+                                                </div>
+
+                                                {/* Category Body */}
+                                                <div className="p-4 flex flex-col gap-1.5 flex-1 justify-between bg-black/10">
+                                                    <div>
+                                                        <h3 className="text-xs font-black uppercase tracking-wider text-white/90">
+                                                            {cat.categoryName}
+                                                        </h3>
+                                                        <p className="text-[10px] leading-relaxed text-white/45 font-medium mt-1">
+                                                            {cat.categoryDescription || 'Explore our full stack solutions and applications.'}
+                                                        </p>
+                                                    </div>
+                                                    <div className="flex justify-between items-center mt-3 pt-2 border-t border-white/[0.03]">
+                                                        <span className="text-[8px] font-mono text-white/20">
+                                                            {cat.projects.length} modules
+                                                        </span>
+                                                        <span className={`text-[9px] font-black uppercase tracking-widest ${accent.text} group-hover:translate-x-0.5 transition-transform`}>
+                                                            Explore →
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
                         </motion.div>
                     )}
 

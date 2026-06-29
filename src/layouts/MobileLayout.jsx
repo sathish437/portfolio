@@ -7,19 +7,20 @@ import ContactSection from '../components/shared/ContactSection';
 import FuturisticBackground from '../components/backgrounds/FuturisticBackground';
 import MobileFooter from '../components/mobile/MobileFooter';
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 
 const nameChars = portfolioData.profile.name.split('');
 
 const sectionsData = [
     {
         id: 'intro',
-        component: () => (
+        component: ({ scrollToSlide }) => (
             <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center p-6 text-center overflow-hidden">
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <FuturisticBackground />
                 </div>
 
-                <div className="relative z-10 flex flex-col items-center gap-2 max-w-sm">
+                <div className="relative z-10 flex flex-col items-center gap-2 max-w-sm w-full">
                     {/* Glowing system tag */}
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 border border-accent/25 mb-4 shadow-glow-cyan-sm animate-pulse">
                         <span className="w-1 h-1 rounded-full bg-accent" />
@@ -48,11 +49,29 @@ const sectionsData = [
                     </p>
 
                     {/* Quick description */}
-                    <p className="text-xs text-gray-text-muted leading-relaxed mb-10 px-4 font-medium">
+                    <p className="text-xs text-gray-text-muted leading-relaxed mb-6 px-4 font-medium">
                         {portfolioData.profile.intro}
                     </p>
 
-                    <div className="flex flex-col items-center gap-2 animate-bounce mt-6 text-accent">
+                    {/* Mobile Workspace CTA Buttons */}
+                    <div className="flex flex-col items-center gap-3.5 mb-6 w-full px-4">
+                        <button
+                            onClick={() => scrollToSlide(3)}
+                            className="w-full relative px-6 py-3.5 rounded-full bg-gradient-to-r from-accent to-accent-blue hover:shadow-glow-cyan text-background font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 transition-all duration-300 border border-cyan-400/30 active:scale-95 shrink-0"
+                        >
+                            <Play size={11} fill="currentColor" />
+                            <span>Initiate Workspace</span>
+                        </button>
+
+                        <button
+                            onClick={() => scrollToSlide(1)}
+                            className="text-[9px] font-black uppercase tracking-[0.25em] text-gray-text-muted hover:text-white transition-colors duration-300 py-1 active:scale-95 shrink-0"
+                        >
+                            Explore Identity
+                        </button>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-2 animate-bounce text-accent">
                         <span className="text-[9px] font-black uppercase tracking-[0.25em] text-gray-text-muted">Swipe Left</span>
                         <span className="text-lg leading-none">→</span>
                     </div>
@@ -169,7 +188,7 @@ export default function MobileLayout() {
                             key={section.id}
                             className="w-screen shrink-0 h-[100dvh] snap-center snap-always overflow-x-hidden flex flex-col"
                         >
-                            <Content />
+                            <Content scrollToSlide={scrollToSlide} />
                         </section>
                     );
                 })}
