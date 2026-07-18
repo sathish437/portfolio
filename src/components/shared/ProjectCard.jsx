@@ -64,15 +64,15 @@ export default function ProjectCard({ project, index, isMobile = false }) {
             {/* ── Card Shell ── */}
             <div className={`relative flex flex-col gap-0 rounded-2xl border overflow-hidden backdrop-blur-md transition-all duration-300 ${
                 isFeatured
-                    ? 'bg-cyan-400/[0.025] border-cyan-400/20 hover:border-cyan-400/40 shadow-[0_0_20px_rgba(0,242,254,0.06)]'
-                    : 'bg-white/[0.015] border-white/[0.06] hover:border-violet-400/30'
+                    ? 'bg-cyan-400/[0.045] border-cyan-400/15 hover:border-cyan-400/30 hover:scale-[1.015] shadow-sm hover:shadow-md'
+                    : 'bg-white/[0.035] border-white/[0.05] hover:border-violet-400/20 hover:scale-[1.015] hover:shadow-md'
             }`}>
 
                 {/* Gradient shimmer overlay on hover */}
                 <div className={`absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none ${
                     isFeatured
-                        ? 'bg-gradient-to-br from-cyan-400/[0.04] via-transparent to-violet-400/[0.04]'
-                        : 'bg-gradient-to-br from-white/[0.02] via-transparent to-violet-400/[0.03]'
+                        ? 'bg-gradient-to-br from-cyan-400/[0.02] via-transparent to-violet-400/[0.02]'
+                        : 'bg-gradient-to-br from-white/[0.01] via-transparent to-violet-400/[0.015]'
                 } ${isHovered ? 'opacity-100' : ''}`} />
 
                 {/* ── Top header bar ── */}
@@ -155,9 +155,9 @@ export default function ProjectCard({ project, index, isMobile = false }) {
                             href={project.links.live}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex-1 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-1.5 ${
+                            className={`flex-1 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all duration-300 flex items-center justify-center gap-1.5 border border-cyan-400/20 hover:border-cyan-400/50 ${
                                 isFeatured
-                                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black hover:shadow-[0_0_15px_rgba(0,242,254,0.35)]'
+                                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-black hover:shadow-md hover:brightness-105'
                                     : 'bg-white/[0.05] border border-white/[0.08] text-white/70 hover:bg-white/[0.1] hover:text-white'
                             }`}
                         >

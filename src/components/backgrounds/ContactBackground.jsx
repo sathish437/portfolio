@@ -18,7 +18,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/15 rounded-full blur-[150px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]"
             />
             
             {/* Large orbit ring 1 */}
@@ -33,7 +33,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'linear',
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border-2 border-accent/20 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] border-2 border-accent/8 rounded-full"
             />
             
             {/* Large orbit ring 2 */}
@@ -49,7 +49,7 @@ export default function ContactBackground() {
                     ease: 'linear',
                     delay: 1,
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] border-2 border-accent/15 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] border-2 border-accent/6 rounded-full"
             />
             
             {/* Large orbit ring 3 */}
@@ -65,7 +65,7 @@ export default function ContactBackground() {
                     ease: 'linear',
                     delay: 2,
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-accent/12 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-accent/5 rounded-full"
             />
             
             {/* Large orbit ring 4 */}
@@ -81,7 +81,7 @@ export default function ContactBackground() {
                     ease: 'linear',
                     delay: 3,
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-accent/10 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-accent/4 rounded-full"
             />
             
             {/* Large floating connection dots */}
@@ -96,7 +96,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/4 left-1/4 w-4 h-4 bg-accent/50 rounded-full blur-[2px]"
+                className="absolute top-1/4 left-1/4 w-4 h-4 bg-accent/20 rounded-full blur-[2px]"
             />
             
             <motion.div
@@ -111,7 +111,7 @@ export default function ContactBackground() {
                     ease: 'easeInOut',
                     delay: 1,
                 }}
-                className="absolute bottom-1/4 right-1/4 w-3.5 h-3.5 bg-accent/45 rounded-full blur-[2px]"
+                className="absolute bottom-1/4 right-1/4 w-3.5 h-3.5 bg-accent/18 rounded-full blur-[2px]"
             />
             
             <motion.div
@@ -126,7 +126,7 @@ export default function ContactBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute top-1/3 right-1/3 w-3 h-3 bg-accent/40 rounded-full blur-[2px]"
+                className="absolute top-1/3 right-1/3 w-3 h-3 bg-accent/16 rounded-full blur-[2px]"
             />
             
             <motion.div
@@ -141,7 +141,7 @@ export default function ContactBackground() {
                     ease: 'easeInOut',
                     delay: 3,
                 }}
-                className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-accent/35 rounded-full blur-[2px]"
+                className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-accent/14 rounded-full blur-[2px]"
             />
             
             {/* Large connection lines */}
@@ -155,7 +155,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-accent/30 to-transparent blur-[2px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-accent/12 to-transparent blur-[2px]"
             />
             
             <motion.div
@@ -169,7 +169,7 @@ export default function ContactBackground() {
                     ease: 'easeInOut',
                     delay: 1.5,
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[800px] bg-gradient-to-b from-transparent via-accent/25 to-transparent blur-[2px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[2px] h-[800px] bg-gradient-to-b from-transparent via-accent/10 to-transparent blur-[2px]"
             />
             
             {/* Large pulse wave 1 */}
@@ -183,7 +183,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[80px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/4 rounded-full blur-[80px]"
             />
             
             {/* Large pulse wave 2 */}
@@ -198,7 +198,7 @@ export default function ContactBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[70px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/3 rounded-full blur-[70px]"
             />
             
             {/* Corner pulse */}
@@ -212,7 +212,7 @@ export default function ContactBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-10 right-10 w-48 h-48 bg-accent/10 rounded-full blur-[60px]"
+                className="absolute top-10 right-10 w-48 h-48 bg-accent/4 rounded-full blur-[60px]"
             />
         </div>
     );

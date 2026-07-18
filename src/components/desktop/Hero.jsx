@@ -41,9 +41,9 @@ export default function Hero({ onOpenWindow }) {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-8 backdrop-blur-md shadow-glow-cyan-sm"
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/5 border border-accent/15 mb-8 backdrop-blur-md shadow-sm"
             >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-glow-cyan" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shadow-[0_0_3px_rgba(0,242,254,0.3)]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.25em] text-accent">
                     {portfolioData.profile.status}
                 </span>
@@ -67,7 +67,7 @@ export default function Hero({ onOpenWindow }) {
                         </motion.span>
                     ))}
                 </h1>
-                <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-purple blur-[80px] opacity-10 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none -z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-purple blur-[80px] opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none -z-10" />
             </div>
 
             {/* Role description — slide up + fade */}
@@ -104,7 +104,7 @@ export default function Hero({ onOpenWindow }) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.4, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-md p-4 rounded-2xl bg-white/[0.015] border border-white/[0.06] backdrop-blur-md shadow-inner-glow mb-10 flex flex-col gap-2.5 text-left text-xs font-mono relative overflow-hidden"
+                className="w-full max-w-md p-4 rounded-2xl bg-white/[0.035] border border-white/[0.05] backdrop-blur-md shadow-inner-glow mb-10 flex flex-col gap-2.5 text-left text-xs font-mono relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 blur-2xl rounded-full pointer-events-none" />
 
@@ -152,7 +152,7 @@ export default function Hero({ onOpenWindow }) {
                     onMouseLeave={handleCtaMouseLeave}
                     onClick={() => onOpenWindow('projects')}
                     style={{ x: springX, y: springY }}
-                    className="relative px-8 py-4 rounded-full bg-gradient-to-r from-accent to-accent-blue hover:shadow-glow-cyan text-background font-black text-xs uppercase tracking-[0.25em] flex items-center gap-3 transition-shadow duration-300 border border-cyan-400/30 group/cta"
+                    className="relative px-8 py-4 rounded-full bg-gradient-to-r from-accent to-accent-blue text-background font-black text-xs uppercase tracking-[0.25em] flex items-center gap-3 transition-all duration-300 border border-cyan-400/20 hover:border-cyan-400/50 hover:shadow-md group/cta"
                 >
                     <Play size={13} fill="currentColor" className="group-hover/cta:translate-x-0.5 transition-transform" />
                     <span>Initiate Workspace</span>

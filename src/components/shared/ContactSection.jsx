@@ -65,7 +65,7 @@ export default function ContactSection({ data }) {
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-8 text-left">
             {/* Header Title */}
             <div className="flex items-center gap-4 border-b border-white/[0.06] pb-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent">
+                <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center text-accent">
                     <Mail size={22} className="animate-pulse" />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ export default function ContactSection({ data }) {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
-                            className="bg-white/[0.01] border border-white/[0.05] rounded-2xl p-4 flex flex-col justify-between min-h-[140px] hover:border-accent/30 hover:bg-white/[0.02] hover:shadow-glow-cyan-sm transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/[0.035] border border-white/[0.05] rounded-2xl p-4 flex flex-col justify-between min-h-[140px] hover:border-accent/20 hover:bg-white/[0.05] hover:scale-[1.015] hover:shadow-md transition-all duration-300 relative group overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 w-16 h-16 bg-accent/5 blur-xl rounded-full pointer-events-none" />
                             
@@ -125,7 +125,7 @@ export default function ContactSection({ data }) {
             </div>
 
             {/* Premium Message Form Panel */}
-            <div className="p-6 rounded-2xl bg-white/[0.015] border border-white/[0.06] backdrop-blur-md shadow-inner-glow relative overflow-hidden">
+            <div className="p-6 rounded-2xl bg-white/[0.035] border border-white/[0.05] backdrop-blur-md shadow-inner-glow relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-accent/5 blur-3xl rounded-full pointer-events-none" />
                 
                 <h3 className="text-sm font-black uppercase tracking-widest text-off-white mb-6">
@@ -140,7 +140,7 @@ export default function ContactSection({ data }) {
                             exit={{ scale: 0.95, opacity: 0 }}
                             className="flex flex-col items-center justify-center py-10 text-center gap-4"
                         >
-                            <div className="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center text-accent shadow-glow-cyan">
+                            <div className="w-16 h-16 rounded-full bg-accent/5 border border-accent/20 flex items-center justify-center text-accent shadow-md">
                                 <Check size={28} className="animate-bounce" />
                             </div>
                             <div>
@@ -163,8 +163,8 @@ export default function ContactSection({ data }) {
                                             onBlur={() => handleBlur('name')}
                                             className={`w-full bg-white/[0.02] border rounded-xl px-4 py-3 text-xs text-off-white focus:outline-none focus:bg-white/[0.04] transition-all placeholder:text-white/10 ${
                                                 touched.name && errors.name 
-                                                    ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.15)]' 
-                                                    : 'border-white/5 focus:border-accent/40 focus:shadow-glow-cyan-sm'
+                                                    ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_8px_rgba(239,68,68,0.08)]' 
+                                                    : 'border-white/5 focus:border-accent/40 focus:ring-1 focus:ring-accent/25'
                                             }`} 
                                             placeholder="John Doe"
                                         />
@@ -196,8 +196,8 @@ export default function ContactSection({ data }) {
                                             onBlur={() => handleBlur('email')}
                                             className={`w-full bg-white/[0.02] border rounded-xl px-4 py-3 text-xs text-off-white focus:outline-none focus:bg-white/[0.04] transition-all placeholder:text-white/10 ${
                                                 touched.email && errors.email 
-                                                    ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.15)]' 
-                                                    : 'border-white/5 focus:border-accent/40 focus:shadow-glow-cyan-sm'
+                                                    ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_8px_rgba(239,68,68,0.08)]' 
+                                                    : 'border-white/5 focus:border-accent/40 focus:ring-1 focus:ring-accent/25'
                                             }`} 
                                             placeholder="john@example.com"
                                         />
@@ -229,8 +229,8 @@ export default function ContactSection({ data }) {
                                     onBlur={() => handleBlur('message')}
                                     className={`w-full bg-white/[0.02] border rounded-xl px-4 py-3 text-xs text-off-white focus:outline-none focus:bg-white/[0.04] transition-all resize-none placeholder:text-white/10 ${
                                         touched.message && errors.message 
-                                            ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.15)]' 
-                                            : 'border-white/5 focus:border-accent/40 focus:shadow-glow-cyan-sm'
+                                            ? 'border-red-500/40 focus:border-red-500 shadow-[0_0_8px_rgba(239,68,68,0.08)]' 
+                                            : 'border-white/5 focus:border-accent/40 focus:ring-1 focus:ring-accent/25'
                                     }`} 
                                     placeholder="Enter your system transmission specifications..."
                                 ></textarea>
@@ -253,7 +253,7 @@ export default function ContactSection({ data }) {
                             <button 
                                 type="submit"
                                 disabled={formStatus === 'sending' || !!(touched.name && errors.name) || !!(touched.email && errors.email) || !!(touched.message && errors.message)}
-                                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-accent to-accent-blue hover:shadow-glow-cyan text-background font-black text-[10px] uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed group"
+                                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-accent to-accent-blue text-background font-black text-[10px] uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed border border-cyan-400/20 hover:border-cyan-400/50 hover:shadow-md group"
                             >
                                 {formStatus === 'sending' ? (
                                     <span className="animate-pulse">Transmitting...</span>

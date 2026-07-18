@@ -18,7 +18,7 @@ export default function ProjectsBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute inset-0 opacity-[0.08]" style={{
+                className="absolute inset-0 opacity-[0.03]" style={{
                     backgroundImage: `
                         linear-gradient(to right, rgba(150,130,115,0.5) 1px, transparent 1px),
                         linear-gradient(to bottom, rgba(150,130,115,0.5) 1px, transparent 1px)
@@ -39,7 +39,7 @@ export default function ProjectsBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute inset-0 opacity-[0.05]" style={{
+                className="absolute inset-0 opacity-[0.02]" style={{
                     backgroundImage: `
                         linear-gradient(to right, rgba(150,130,115,0.4) 1px, transparent 1px),
                         linear-gradient(to bottom, rgba(150,130,115,0.4) 1px, transparent 1px)
@@ -61,7 +61,7 @@ export default function ProjectsBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-accent/15 rounded-3xl blur-[120px]"
+                className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-accent/5 rounded-3xl blur-[120px]"
             />
             
             {/* Large floating panel glow 2 */}
@@ -78,7 +78,7 @@ export default function ProjectsBackground() {
                     ease: 'easeInOut',
                     delay: 3,
                 }}
-                className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-accent/12 rounded-3xl blur-[110px]"
+                className="absolute bottom-1/3 right-1/4 w-[350px] h-[350px] bg-accent/4 rounded-3xl blur-[110px]"
             />
             
             {/* Large motion layer - horizontal drift */}
@@ -91,7 +91,7 @@ export default function ProjectsBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute inset-0 bg-gradient-to-br from-accent/8 via-transparent to-accent/6"
+                className="absolute inset-0 bg-gradient-to-br from-accent/3 via-transparent to-accent/2"
             />
             
             {/* Large corner accent */}
@@ -105,7 +105,7 @@ export default function ProjectsBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/10 to-transparent rounded-bl-full blur-[80px]"
+                className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-accent/4 to-transparent rounded-bl-full blur-[80px]"
             />
             
             {/* Large bottom accent */}
@@ -120,7 +120,7 @@ export default function ProjectsBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute bottom-0 left-0 w-2/3 h-1/3 bg-gradient-to-tr from-accent/8 to-transparent rounded-tr-full blur-[70px]"
+                className="absolute bottom-0 left-0 w-2/3 h-1/3 bg-gradient-to-tr from-accent/3 to-transparent rounded-tr-full blur-[70px]"
             />
             
             {/* Large floating card 1 */}
@@ -134,7 +134,7 @@ export default function ProjectsBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/4 left-1/4 w-48 h-32 bg-accent/8 rounded-2xl blur-[40px]"
+                className="absolute top-1/4 left-1/4 w-48 h-32 bg-accent/3 rounded-2xl blur-[40px]"
             />
             
             {/* Large floating card 2 */}
@@ -149,7 +149,7 @@ export default function ProjectsBackground() {
                     ease: 'easeInOut',
                     delay: 4,
                 }}
-                className="absolute bottom-1/3 right-1/4 w-40 h-28 bg-accent/6 rounded-2xl blur-[35px]"
+                className="absolute bottom-1/3 right-1/4 w-40 h-28 bg-accent/2 rounded-2xl blur-[35px]"
             />
         </div>
     );

@@ -97,10 +97,10 @@ export default function CustomCursor() {
                 }}
                 animate={{
                     scale: cursorType === 'pointer' ? 2.4 : (cursorType === 'card' ? 1.6 : 1),
-                    borderColor: cursorType === 'pointer' ? '#9b5de5' : (cursorType === 'card' ? '#0070f3' : 'rgba(0, 242, 254, 0.4)'),
+                    borderColor: cursorType === 'pointer' ? 'rgba(155, 93, 229, 0.4)' : (cursorType === 'card' ? 'rgba(0, 112, 243, 0.25)' : 'rgba(0, 242, 254, 0.15)'),
                     boxShadow: cursorType === 'pointer' 
-                        ? '0 0 15px rgba(155, 93, 229, 0.5)' 
-                        : (cursorType === 'card' ? '0 0 15px rgba(0, 112, 243, 0.3)' : '0 0 10px rgba(0, 242, 254, 0.15)'),
+                        ? '0 0 6px rgba(155, 93, 229, 0.2)' 
+                        : (cursorType === 'card' ? '0 0 6px rgba(0, 112, 243, 0.12)' : '0 0 4px rgba(0, 242, 254, 0.06)'),
                     backgroundColor: cursorType === 'pointer' ? 'rgba(155, 93, 229, 0.04)' : 'rgba(0, 0, 0, 0)',
                 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 280 }}

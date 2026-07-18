@@ -31,7 +31,7 @@ export default function AboutSection({ variant = 'desktop' }) {
 
             {/* Header Identity banner */}
             <motion.div {...fadeUp(0)} className="flex items-center gap-4 border-b border-white/[0.06] pb-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent">
+                <div className="w-12 h-12 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center text-accent">
                     <User size={22} className="animate-pulse" />
                 </div>
                 <div>
@@ -45,7 +45,7 @@ export default function AboutSection({ variant = 'desktop' }) {
             {/* Profile Intro narrative card */}
             <motion.div
                 {...fadeUp(0.1)}
-                className="p-5 rounded-2xl bg-white/[0.015] border border-white/[0.06] backdrop-blur-md shadow-inner-glow relative overflow-hidden"
+                className="p-5 rounded-2xl bg-white/[0.035] border border-white/[0.05] backdrop-blur-md shadow-inner-glow relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent-purple/5 blur-2xl rounded-full pointer-events-none" />
                 <p className="text-[13px] leading-relaxed text-off-white/80 font-medium font-sans">
@@ -56,7 +56,7 @@ export default function AboutSection({ variant = 'desktop' }) {
             {/* Tech Highlight Pill */}
             <motion.div
                 {...fadeLeft(0.15)}
-                className="inline-flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-accent/10 to-accent-purple/10 border border-accent/20 shadow-glow-cyan-sm"
+                className="inline-flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r from-accent/4 to-accent-purple/4 border border-accent/15 shadow-sm"
             >
                 <Award size={16} className="text-accent" />
                 <span className="text-[11px] font-bold text-accent tracking-wide">
@@ -72,10 +72,10 @@ export default function AboutSection({ variant = 'desktop' }) {
                         <motion.div
                             key={i}
                             {...fadeUp(0.15 + i * 0.08)}
-                            whileHover={{ y: -3, scale: 1.02 }}
-                            className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.05] hover:border-accent/20 hover:bg-white/[0.02] transition-all duration-300 flex flex-col gap-2"
+                            whileHover={{ y: -1, scale: 1.015 }}
+                            className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.04] hover:border-accent/15 hover:bg-white/[0.05] transition-all duration-300 flex flex-col gap-2"
                         >
-                            <div className={`w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center ${stat.color}`}>
+                            <div className={`w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.05] flex items-center justify-center ${stat.color}`}>
                                 <Icon size={16} />
                             </div>
                             <div>
@@ -90,7 +90,7 @@ export default function AboutSection({ variant = 'desktop' }) {
             {/* Mission Statement Block */}
             <motion.div
                 {...fadeUp(0.35)}
-                className="p-5 rounded-2xl bg-gradient-to-br from-white/[0.01] to-white/[0.005] border border-white/[0.04] flex flex-col gap-2 relative overflow-hidden"
+                className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.04] flex flex-col gap-2 relative overflow-hidden"
             >
                 <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-accent/5 blur-2xl rounded-full pointer-events-none" />
                 <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-accent font-outfit">Core Objective</h3>

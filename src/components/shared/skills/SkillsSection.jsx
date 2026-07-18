@@ -16,12 +16,12 @@ const categoryIcons = {
 
 // Each category gets a unique accent so the grid feels varied
 const categoryAccents = [
-    { border: 'border-cyan-400/15',    glow: 'hover:border-cyan-400/35 hover:shadow-[0_0_20px_rgba(0,242,254,0.08)]',    icon: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',    badge: 'bg-cyan-400/8  border-cyan-400/15 text-cyan-300'    },
-    { border: 'border-violet-400/15',  glow: 'hover:border-violet-400/35 hover:shadow-[0_0_20px_rgba(139,92,246,0.08)]',  icon: 'text-violet-400 bg-violet-400/10 border-violet-400/20',  badge: 'bg-violet-400/8 border-violet-400/15 text-violet-300' },
-    { border: 'border-indigo-400/15',  glow: 'hover:border-indigo-400/35 hover:shadow-[0_0_20px_rgba(99,102,241,0.08)]',  icon: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',  badge: 'bg-indigo-400/8 border-indigo-400/15 text-indigo-300' },
-    { border: 'border-emerald-400/15', glow: 'hover:border-emerald-400/35 hover:shadow-[0_0_20px_rgba(52,211,153,0.08)]', icon: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20', badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300' },
-    { border: 'border-amber-400/15',   glow: 'hover:border-amber-400/35 hover:shadow-[0_0_20px_rgba(251,191,36,0.08)]',   icon: 'text-amber-400 bg-amber-400/10 border-amber-400/20',   badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300'   },
-    { border: 'border-rose-400/15',    glow: 'hover:border-rose-400/35 hover:shadow-[0_0_20px_rgba(251,113,133,0.08)]',    icon: 'text-rose-400 bg-rose-400/10 border-rose-400/20',    badge: 'bg-rose-400/8 border-rose-400/15 text-rose-300'    },
+    { border: 'border-cyan-400/15',    glow: 'hover:border-cyan-400/30 hover:shadow-md',    icon: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',    badge: 'bg-cyan-400/8  border-cyan-400/15 text-cyan-300'    },
+    { border: 'border-violet-400/15',  glow: 'hover:border-violet-400/30 hover:shadow-md',  icon: 'text-violet-400 bg-violet-400/10 border-violet-400/20',  badge: 'bg-violet-400/8 border-violet-400/15 text-violet-300' },
+    { border: 'border-indigo-400/15',  glow: 'hover:border-indigo-400/30 hover:shadow-md',  icon: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',  badge: 'bg-indigo-400/8 border-indigo-400/15 text-indigo-300' },
+    { border: 'border-emerald-400/15', glow: 'hover:border-emerald-400/30 hover:shadow-md', icon: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20', badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300' },
+    { border: 'border-amber-400/15',   glow: 'hover:border-amber-400/30 hover:shadow-md',   icon: 'text-amber-400 bg-amber-400/10 border-amber-400/20',   badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300'   },
+    { border: 'border-rose-400/15',    glow: 'hover:border-rose-400/30 hover:shadow-md',    icon: 'text-rose-400 bg-rose-400/10 border-rose-400/20',    badge: 'bg-rose-400/8 border-rose-400/15 text-rose-300'    },
 ];
 
 export default function SkillsSection({ data, variant = 'desktop' }) {
@@ -39,7 +39,7 @@ export default function SkillsSection({ data, variant = 'desktop' }) {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-4 border-b border-white/[0.06] pb-4"
             >
-                <div className="w-11 h-11 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center text-accent shrink-0">
                     <Cpu size={20} className="animate-pulse" />
                 </div>
                 <div>
@@ -69,9 +69,9 @@ export default function SkillsSection({ data, variant = 'desktop' }) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ delay: i * 0.06, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                            whileHover={{ y: -3, scale: 1.01 }}
+                            whileHover={{ y: -1, scale: 1.01 }}
                             className={`relative rounded-2xl border backdrop-blur-md overflow-hidden p-4 transition-all duration-300
-                                bg-white/[0.015] ${accent.border} ${accent.glow} group`}
+                                bg-white/[0.035] ${accent.border} ${accent.glow} group`}
                         >
                             {/* Subtle gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -100,12 +100,12 @@ export default function SkillsSection({ data, variant = 'desktop' }) {
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: (i * 0.06) + (si * 0.04), duration: 0.4 }}
-                                        whileHover={{ scale: 1.08, y: -1 }}
+                                        whileHover={{ scale: 1.03, y: -0.5 }}
                                         className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9.5px] font-bold
                                             tracking-wide cursor-default transition-all duration-200 select-none
                                             ${skill.highlight
                                                 ? accent.badge
-                                                : 'bg-white/[0.03] border-white/[0.06] text-white/45 hover:text-white/75 hover:bg-white/[0.06]'
+                                                : 'bg-white/[0.05] border-white/[0.05] text-white/45 hover:text-white/75 hover:bg-white/[0.07]'
                                             }`}
                                     >
                                         {skill.name}

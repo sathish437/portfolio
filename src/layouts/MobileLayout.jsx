@@ -22,7 +22,7 @@ const sectionsData = [
 
                 <div className="relative z-10 flex flex-col items-center gap-2 max-w-sm w-full">
                     {/* Glowing system tag */}
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/15 border border-accent/25 mb-4 shadow-glow-cyan-sm animate-pulse">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/8 border border-accent/20 mb-4 shadow-sm animate-pulse">
                         <span className="w-1 h-1 rounded-full bg-accent" />
                         <span className="text-[8px] font-black uppercase tracking-[0.2em] text-accent">Active Node</span>
                     </div>
@@ -57,7 +57,7 @@ const sectionsData = [
                     <div className="flex flex-col items-center gap-3.5 mb-6 w-full px-4">
                         <button
                             onClick={() => scrollToSlide(3)}
-                            className="w-full relative px-6 py-3.5 rounded-full bg-gradient-to-r from-accent to-accent-blue hover:shadow-glow-cyan text-background font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 transition-all duration-300 border border-cyan-400/30 active:scale-95 shrink-0"
+                            className="w-full relative px-6 py-3.5 rounded-full bg-gradient-to-r from-accent to-accent-blue text-background font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2.5 transition-all duration-300 border border-cyan-400/20 hover:border-cyan-400/50 hover:shadow-md active:scale-95 shrink-0"
                         >
                             <Play size={11} fill="currentColor" />
                             <span>Initiate Workspace</span>
@@ -168,7 +168,7 @@ export default function MobileLayout() {
                         key={i}
                         onClick={() => scrollToSlide(i)}
                         className={`transition-all duration-300 rounded-full ${activeIndex === i
-                            ? 'w-5 h-1 bg-accent shadow-glow-cyan'
+                            ? 'w-5 h-1 bg-accent shadow-[0_0_3px_rgba(0,242,254,0.3)]'
                             : 'w-1 h-1 bg-white/25 hover:bg-white/40'
                             }`}
                         aria-label={`Go to slide ${i + 1}`}

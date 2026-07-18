@@ -19,7 +19,7 @@ export default function AboutBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/12 rounded-full blur-[150px]"
+                className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]"
             />
             
             {/* Large secondary flowing gradient */}
@@ -35,7 +35,7 @@ export default function AboutBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[140px]"
+                className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/4 rounded-full blur-[140px]"
             />
             
             {/* Horizontal flowing ribbon */}
@@ -50,7 +50,7 @@ export default function AboutBackground() {
                     ease: 'easeInOut',
                     delay: 1,
                 }}
-                className="absolute top-1/2 left-0 right-0 h-32 bg-gradient-to-r from-transparent via-accent/10 to-transparent blur-[60px]"
+                className="absolute top-1/2 left-0 right-0 h-32 bg-gradient-to-r from-transparent via-accent/4 to-transparent blur-[60px]"
             />
             
             {/* Corner accent glow */}
@@ -64,7 +64,7 @@ export default function AboutBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-0 right-0 w-96 h-96 bg-accent/8 rounded-full blur-[120px]"
+                className="absolute top-0 right-0 w-96 h-96 bg-accent/3 rounded-full blur-[120px]"
             />
         </div>
     );

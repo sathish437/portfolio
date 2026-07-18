@@ -30,14 +30,18 @@ export default {
                 'gradient-cyan-purple': 'linear-gradient(135deg, #00f2fe 0%, #9b5de5 100%)',
             },
             boxShadow: {
-                'glow-cyan-sm': '0 0 10px rgba(0, 242, 254, 0.2)',
-                'glow-cyan': '0 0 20px rgba(0, 242, 254, 0.35)',
-                'glow-cyan-lg': '0 0 35px rgba(0, 242, 254, 0.5)',
-                'glow-purple-sm': '0 0 10px rgba(155, 93, 229, 0.2)',
-                'glow-purple': '0 0 20px rgba(155, 93, 229, 0.35)',
-                'glow-purple-lg': '0 0 35px rgba(155, 93, 229, 0.5)',
-                'inner-glow': 'inset 0 0 15px rgba(255, 255, 255, 0.03)',
-                'neon-border': '0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 15px rgba(0, 242, 254, 0.1)',
+                'glow-cyan-sm': '0 0 6px rgba(0, 242, 254, 0.08)',
+                'glow-cyan': '0 0 12px rgba(0, 242, 254, 0.12)',
+                'glow-cyan-lg': '0 0 20px rgba(0, 242, 254, 0.18)',
+                'glow-purple-sm': '0 0 6px rgba(155, 93, 229, 0.08)',
+                'glow-purple': '0 0 12px rgba(155, 93, 229, 0.12)',
+                'glow-purple-lg': '0 0 20px rgba(155, 93, 229, 0.18)',
+                'inner-glow': 'inset 0 0 8px rgba(255, 255, 255, 0.01)',
+                'neon-border': '0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 6px rgba(0, 242, 254, 0.03)',
+                'glow-md': '0 4px 20px rgba(0, 242, 254, 0.08)',
+                'glow-lg': '0 8px 30px rgba(0, 242, 254, 0.15)',
+                'glow-warm-md': '0 4px 20px rgba(155, 93, 229, 0.08)',
+                'glow-warm-lg': '0 8px 30px rgba(155, 93, 229, 0.15)',
             },
             keyframes: {
                 float: {
@@ -61,8 +65,8 @@ export default {
                     '100%': { opacity: '1', transform: 'translateY(0)' },
                 },
                 'glow-pulse': {
-                    '0%, 100%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)', borderColor: 'rgba(0, 242, 254, 0.2)' },
-                    '50%': { boxShadow: '0 0 30px rgba(0, 242, 254, 0.5)', borderColor: 'rgba(0, 242, 254, 0.5)' },
+                    '0%, 100%': { boxShadow: '0 0 8px rgba(0, 242, 254, 0.08)', borderColor: 'rgba(0, 242, 254, 0.08)' },
+                    '50%': { boxShadow: '0 0 15px rgba(0, 242, 254, 0.15)', borderColor: 'rgba(0, 242, 254, 0.15)' },
                 },
                 'grid-scroll': {
                     '0%': { backgroundPosition: '0 0' },

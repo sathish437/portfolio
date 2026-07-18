@@ -23,10 +23,10 @@ const categoryImageMap = {
 
 // Accent styles for categories
 const catAccents = [
-    { dot: 'bg-cyan-400',    text: 'text-cyan-400',    border: 'border-cyan-400/35',  glow: 'hover:shadow-[0_0_20px_rgba(0,242,254,0.08)] bg-cyan-400/[0.01]'   },
-    { dot: 'bg-violet-400',  text: 'text-violet-400',  border: 'border-violet-400/35', glow: 'hover:shadow-[0_0_20px_rgba(139,92,246,0.08)] bg-violet-400/[0.01]' },
-    { dot: 'bg-sky-400',     text: 'text-sky-400',     border: 'border-sky-400/35',    glow: 'hover:shadow-[0_0_20px_rgba(56,189,248,0.08)] bg-sky-400/[0.01]'    },
-    { dot: 'bg-indigo-400',  text: 'text-indigo-400',  border: 'border-indigo-400/35', glow: 'hover:shadow-[0_0_20px_rgba(99,102,241,0.08)] bg-indigo-400/[0.01]' },
+    { dot: 'bg-cyan-400',    text: 'text-cyan-400',    border: 'border-cyan-400/15',  glow: 'hover:shadow-md hover:border-cyan-400/30 bg-white/[0.02]'   },
+    { dot: 'bg-violet-400',  text: 'text-violet-400',  border: 'border-violet-400/15', glow: 'hover:shadow-md hover:border-violet-400/30 bg-white/[0.02]' },
+    { dot: 'bg-sky-400',     text: 'text-sky-400',     border: 'border-sky-400/15',    glow: 'hover:shadow-md hover:border-sky-400/30 bg-white/[0.02]'    },
+    { dot: 'bg-indigo-400',  text: 'text-indigo-400',  border: 'border-indigo-400/15', glow: 'hover:shadow-md hover:border-indigo-400/30 bg-white/[0.02]' },
 ];
 
 export default function CategorizedProjects() {
@@ -57,7 +57,7 @@ export default function CategorizedProjects() {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-4 border-b border-white/[0.06] pb-4"
             >
-                <div className="w-11 h-11 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-accent/8 border border-accent/15 flex items-center justify-center text-accent shrink-0">
                     <Terminal size={20} className="animate-pulse" />
                 </div>
                 <div>
@@ -130,13 +130,13 @@ export default function CategorizedProjects() {
                                                 initial={{ opacity: 0, y: 15 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: catIdx * 0.05, duration: 0.4 }}
-                                                whileHover={{ y: -3, scale: 1.01 }}
+                                                whileHover={{ y: -1, scale: 1.01 }}
                                                 onClick={() => {
                                                     setSelectedCategory(cat);
                                                     setView('projects');
                                                 }}
                                                 className={`relative rounded-2xl border backdrop-blur-md overflow-hidden p-0 cursor-pointer select-none transition-all duration-300
-                                                    bg-white/[0.015] ${accent.border} ${accent.glow} group flex flex-col h-full`}
+                                                    bg-white/[0.035] ${accent.border} ${accent.glow} group flex flex-col h-full`}
                                             >
                                                 {/* Category Image Header */}
                                                 <div className="w-full h-32 overflow-hidden relative">
@@ -194,7 +194,7 @@ export default function CategorizedProjects() {
                                         setView('categories');
                                         setSelectedCategory(null);
                                     }}
-                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.03] border border-white/[0.06] text-white/60 hover:text-white hover:bg-white/[0.08] transition-all"
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.05] border border-white/[0.06] text-white/60 hover:text-white hover:bg-white/[0.08] transition-all"
                                 >
                                     <ArrowLeft size={11} />
                                     Back to Categories
@@ -205,7 +205,7 @@ export default function CategorizedProjects() {
                             </div>
 
                             {/* Category Info Banner */}
-                            <div className="p-4 rounded-xl bg-white/[0.01] border border-white/[0.04] backdrop-blur-md mb-2">
+                            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.04] backdrop-blur-md mb-2">
                                 <h3 className="text-sm font-black uppercase text-white tracking-wide">
                                     {selectedCategory.categoryName}
                                 </h3>
@@ -231,7 +231,7 @@ export default function CategorizedProjects() {
                                                 setView('details');
                                             }}
                                             className={`p-4 rounded-xl border backdrop-blur-md cursor-pointer select-none transition-all duration-300
-                                                bg-white/[0.01] border-white/[0.05] hover:border-white/10 hover:bg-white/[0.02] flex items-center justify-between group`}
+                                                bg-white/[0.03] border-white/[0.04] hover:border-white/12 hover:bg-white/[0.05] flex items-center justify-between group`}
                                         >
                                             <div className="flex flex-col gap-1 min-w-0 flex-1">
                                                 <div className="flex items-center gap-2 flex-wrap">
@@ -239,7 +239,7 @@ export default function CategorizedProjects() {
                                                         {proj.name}
                                                     </span>
                                                     {proj.type && (
-                                                        <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest bg-white/[0.03] border border-white/[0.06] ${accent.text}`}>
+                                                        <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-widest bg-white/[0.05] border border-white/[0.06] ${accent.text}`}>
                                                             {proj.type}
                                                         </span>
                                                     )}
@@ -274,7 +274,7 @@ export default function CategorizedProjects() {
                                         setView('projects');
                                         setSelectedProject(null);
                                     }}
-                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.03] border border-white/[0.06] text-white/60 hover:text-white hover:bg-white/[0.08] transition-all"
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.05] border border-white/[0.06] text-white/60 hover:text-white hover:bg-white/[0.08] transition-all"
                                 >
                                     <ArrowLeft size={11} />
                                     Back to List
@@ -285,7 +285,7 @@ export default function CategorizedProjects() {
                             </div>
 
                             {/* Project Title Block */}
-                            <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.015] border border-white/[0.06] backdrop-blur-md shadow-inner-glow relative overflow-hidden">
+                            <div className="flex flex-col gap-2 p-5 rounded-2xl bg-white/[0.035] border border-white/[0.05] backdrop-blur-md shadow-inner-glow relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 blur-2xl rounded-full pointer-events-none" />
                                 
                                 <div className="flex items-center gap-3">
@@ -308,7 +308,7 @@ export default function CategorizedProjects() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* Features checklist */}
                                 {selectedProject.features && selectedProject.features.length > 0 && (
-                                    <div className="p-4 rounded-xl bg-white/[0.005] border border-white/[0.04] flex flex-col gap-2.5">
+                                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] flex flex-col gap-2.5">
                                         <h4 className="text-[8.5px] font-black uppercase tracking-[0.25em] text-accent">Key Features</h4>
                                         <ul className="flex flex-col gap-2">
                                             {selectedProject.features.map((f, fi) => (
@@ -323,12 +323,12 @@ export default function CategorizedProjects() {
 
                                 {/* Tech Stack preset tags */}
                                 {selectedProject.stack && selectedProject.stack.length > 0 && (
-                                    <div className="p-4 rounded-xl bg-white/[0.005] border border-white/[0.04] flex flex-col gap-2.5 justify-between">
+                                    <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.04] flex flex-col gap-2.5 justify-between">
                                         <div className="flex flex-col gap-2.5">
                                             <h4 className="text-[8.5px] font-black uppercase tracking-[0.25em] text-accent">Environment Stack</h4>
                                             <div className="flex flex-wrap gap-1.5">
                                                 {selectedProject.stack.map((tech, ti) => (
-                                                    <span key={ti} className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.05] text-white/40">
+                                                    <span key={ti} className="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.05] text-white/40">
                                                         {tech}
                                                     </span>
                                                 ))}
@@ -342,7 +342,7 @@ export default function CategorizedProjects() {
                                                     href={selectedProject.links.live}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-cyan-500 to-blue-500 text-black hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]"
+                                                    className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] transition-all duration-300 bg-gradient-to-r from-cyan-500 to-blue-500 text-black hover:shadow-md hover:brightness-105 border border-cyan-400/20 hover:border-cyan-400/50"
                                                 >
                                                     <ExternalLink size={10} strokeWidth={2.5} />
                                                     Launch Node
@@ -353,7 +353,7 @@ export default function CategorizedProjects() {
                                                     href={selectedProject.links.github}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.04] border border-white/[0.06] text-white/50 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
+                                                    className="px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.15em] bg-white/[0.05] border border-white/[0.06] text-white/50 hover:text-white hover:bg-white/[0.08] transition-all duration-300"
                                                 >
                                                     Inspect Source
                                                 </a>

@@ -128,34 +128,34 @@ export default function SkillCard({
             initial="hidden"
             animate="visible"
             whileHover={{
-                scale: 1.02,
-                y: -2,
+                scale: 1.015,
+                y: -1,
                 transition: { type: 'spring', stiffness: 280, damping: 28 },
             }}
             className="relative group h-full w-full"
         >
             {/* Animated Glow Background (subtle hover glow) */}
-            <div className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none ${
+            <div className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none ${
                 isPremium
-                    ? 'bg-gradient-to-r from-accent/15 to-accent/5 blur-sm'
-                    : 'bg-gradient-to-r from-accent/8 to-transparent blur-sm'
+                    ? 'bg-gradient-to-r from-accent/8 to-accent/2 blur-sm'
+                    : 'bg-gradient-to-r from-accent/4 to-transparent blur-sm'
             }`} />
 
             {/* Card Container */}
             <div className={`relative h-full rounded-2xl border backdrop-blur-md transition-all duration-300 flex flex-col gap-4 p-5 ${
                 isPremium
-                    ? 'bg-accent/[0.04] border-accent/20 shadow-[0_4px_12px_rgba(150,130,115,0.06)]'
-                    : 'bg-white/[0.015] border-white/[0.06] shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
-            } group-hover:border-accent/25 group-hover:shadow-[0_4px_14px_rgba(150,130,115,0.08)]`}>
+                    ? 'bg-accent/[0.07] border-accent/20 shadow-[0_4px_12px_rgba(150,130,115,0.06)]'
+                    : 'bg-white/[0.035] border-white/[0.05] shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
+            } group-hover:border-accent/15 group-hover:shadow-[0_4px_14px_rgba(150,130,115,0.08)]`}>
 
                 {/* Inner Gradient Overlay on Hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-[0.12] transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none" />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col gap-3 h-full">
                     {/* Icon */}
                     <motion.div
-                        whileHover={{ scale: 1.15, rotate: 8 }}
+                        whileHover={{ scale: 1.05, rotate: 2 }}
                         className={`transition-all duration-300 flex items-center justify-center flex-shrink-0 rounded-xl w-12 h-12 ${
                             isPremium
                                 ? 'bg-accent/20 text-accent border border-accent/20'

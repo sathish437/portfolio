@@ -59,7 +59,7 @@ export default function Taskbar() {
     return (
         <div className="w-full max-w-5xl h-14 backdrop-blur-xl bg-[#09090b]/75 rounded-full border border-white/[0.05] shadow-[0_20px_50px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.03)] flex items-center justify-between px-8 relative overflow-visible select-none">
             {/* Ambient subtle header border glow */}
-            <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/35 to-transparent" />
+            <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent/15 to-transparent" />
 
             {/* Weather status */}
             <div className="flex items-center gap-3 w-44">
@@ -101,16 +101,16 @@ export default function Taskbar() {
                                         setActiveWindow(win.id);
                                     }}
                                     className={`relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300
-                                        ${isActive
-                                            ? 'bg-white/[0.04] border border-accent/30 shadow-glow-cyan-sm scale-105'
-                                            : 'hover:bg-white/[0.03] hover:border-white/10 hover:scale-110 bg-white/[0.01] border border-white/[0.04]'}
-                                    `}
+                                         ${isActive
+                                             ? 'bg-white/[0.06] border border-accent/40 shadow-sm scale-105'
+                                             : 'hover:bg-white/[0.05] hover:border-white/10 hover:scale-105 bg-white/[0.02] border border-white/[0.04]'}
+                                     `}
                                 >
                                     <TaskbarIcon id={win.id} iconSrc={iconSrc} />
 
                                     {/* Neon active/minimized indicator dots */}
                                     {isActive ? (
-                                        <div className="absolute -bottom-[5px] w-1.5 h-1.5 rounded-full bg-accent shadow-glow-cyan" />
+                                        <div className="absolute -bottom-[5px] w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_3px_rgba(0,242,254,0.3)]" />
                                     ) : (
                                         <div className="absolute -bottom-[5px] w-1 h-1 rounded-full bg-accent-purple/30 group-hover/taskicon:bg-accent-purple" />
                                     )}
@@ -141,7 +141,7 @@ export default function Taskbar() {
                                 href={item.href}
                                 target="_blank"
                                 rel="noreferrer"
-                                whileHover={{ scale: 1.15, y: -2 }}
+                                whileHover={{ scale: 1.08, y: -1 }}
                                 className="w-8 h-8 flex items-center justify-center rounded-full text-gray-text-muted hover:text-off-white hover:bg-white/[0.03] transition-all border border-transparent hover:border-white/[0.04]"
                             >
                                 <Icon size={14} />

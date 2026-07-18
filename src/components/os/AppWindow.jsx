@@ -32,7 +32,7 @@ export default function AppWindow({ id, title, children }) {
                 absolute backdrop-blur-3xl bg-[#09090b]/85
                 overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.85)] border
                 ${isActive && !isMinimized 
-                    ? 'border-accent/30 shadow-glow-cyan-sm ring-1 ring-accent/15' 
+                    ? 'border-accent/50 ring-1 ring-accent/30 shadow-[0_30px_100px_rgba(0,0,0,0.95)]' 
                     : 'border-white/[0.05]'
                 }
                 ${!isActive && !isMinimized ? 'opacity-85' : ''}
@@ -45,7 +45,7 @@ export default function AppWindow({ id, title, children }) {
         >
             {/* Soft inner glow behind content */}
             {isActive && !isFullScreen && !isMinimized && (
-                <div className="absolute -inset-32 bg-gradient-to-br from-accent/5 to-accent-purple/5 blur-[100px] pointer-events-none -z-10" />
+                <div className="absolute -inset-32 bg-gradient-to-br from-accent/2 to-accent-purple/2 blur-[100px] pointer-events-none -z-10" />
             )}
 
             {/* Window Header */}

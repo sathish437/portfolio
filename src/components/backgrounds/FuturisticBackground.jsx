@@ -49,8 +49,8 @@ export default function FuturisticBackground() {
                 this.speedX = Math.random() * 0.4 - 0.2;
                 this.speedY = -(Math.random() * 0.5 + 0.15); // Float upwards
                 
-                this.color = Math.random() > 0.5 ? 'rgba(0, 242, 254, 0.45)' : 'rgba(155, 93, 229, 0.45)';
-                this.glowColor = this.color.replace('0.45', '0.7');
+                this.color = Math.random() > 0.5 ? 'rgba(0, 242, 254, 0.2)' : 'rgba(155, 93, 229, 0.2)';
+                this.glowColor = this.color.replace('0.2', '0.35');
             }
 
             draw() {
@@ -126,7 +126,7 @@ export default function FuturisticBackground() {
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
                     if (dist < 100) {
-                        const alpha = (100 - dist) / 100 * 0.08;
+                        const alpha = (100 - dist) / 100 * 0.03;
                         ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
@@ -166,7 +166,7 @@ export default function FuturisticBackground() {
         <div className="absolute inset-0 bg-[#050505] overflow-hidden select-none pointer-events-none z-0">
             {/* Perspective Animated Grid System */}
             <div 
-                className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-grid-scroll"
+                className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-grid-scroll"
                 style={{
                     perspective: '1000px',
                     transform: 'rotateX(50deg) scale(1.6) translateY(-10%)',
@@ -190,7 +190,7 @@ export default function FuturisticBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-[-10%] left-[-10%] w-[550px] h-[550px] bg-[#00f2fe]/8 rounded-full blur-[140px]"
+                className="absolute top-[-10%] left-[-10%] w-[550px] h-[550px] bg-[#00f2fe]/3 rounded-full blur-[140px]"
             />
 
             {/* Blob 2: Purple Glow */}
@@ -206,7 +206,7 @@ export default function FuturisticBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#9b5de5]/6 rounded-full blur-[160px]"
+                className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#9b5de5]/2 rounded-full blur-[160px]"
             />
 
             {/* Blob 3: Center-Right Blue Drift */}
@@ -220,7 +220,7 @@ export default function FuturisticBackground() {
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-[35%] right-[15%] w-[450px] h-[450px] bg-[#0070f3]/5 rounded-full blur-[130px]"
+                className="absolute top-[35%] right-[15%] w-[450px] h-[450px] bg-[#0070f3]/1.5 rounded-full blur-[130px]"
             />
 
             {/* Interactive Particle Canvas */}

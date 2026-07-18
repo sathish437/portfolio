@@ -28,19 +28,19 @@ export const AnimatedBadge = ({
     const variantStyles = {
         cool: {
             bg: 'bg-cyan-500/15 hover:bg-cyan-500/25',
-            border: 'border-cyan-400/30 hover:border-cyan-400/60',
+            border: 'border-cyan-400/20 hover:border-cyan-400/40',
             text: 'text-cyan-200',
             icon: 'text-cyan-300',
         },
         warm: {
             bg: 'bg-pink-500/15 hover:bg-pink-500/25',
-            border: 'border-pink-400/30 hover:border-pink-400/60',
+            border: 'border-pink-400/20 hover:border-pink-400/40',
             text: 'text-pink-200',
             icon: 'text-pink-300',
         },
         accent: {
             bg: 'bg-accent/15 hover:bg-accent/25',
-            border: 'border-accent/30 hover:border-accent/60',
+            border: 'border-accent/20 hover:border-accent/40',
             text: 'text-accent',
             icon: 'text-accent',
         },
@@ -51,7 +51,7 @@ export const AnimatedBadge = ({
 
     return (
         <motion.div
-            whileHover={interactive ? { scale: 1.05, y: -2 } : {}}
+            whileHover={interactive ? { scale: 1.02, y: -1 } : {}}
             whileTap={interactive ? { scale: 0.95 } : {}}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             className={clsx(
@@ -65,7 +65,7 @@ export const AnimatedBadge = ({
         >
             {icon && (
                 <motion.div
-                    whileHover={interactive ? { scale: 1.2, rotate: 5 } : {}}
+                    whileHover={interactive ? { scale: 1.05, rotate: 2 } : {}}
                     className={clsx('flex-shrink-0', style.icon)}
                 >
                     {icon}

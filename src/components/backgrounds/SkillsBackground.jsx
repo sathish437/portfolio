@@ -18,7 +18,7 @@ export default function SkillsBackground() {
                     repeat: Infinity,
                     ease: 'linear',
                 }}
-                className="absolute top-1/4 left-0 w-full h-2 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-[4px]"
+                className="absolute top-1/4 left-0 w-full h-2 bg-gradient-to-r from-transparent via-accent/15 to-transparent blur-[4px]"
             />
             
             {/* Large energy streak 2 */}
@@ -33,7 +33,7 @@ export default function SkillsBackground() {
                     ease: 'linear',
                     delay: 2,
                 }}
-                className="absolute top-1/2 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-accent/35 to-transparent blur-[3px]"
+                className="absolute top-1/2 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-accent/12 to-transparent blur-[3px]"
             />
             
             {/* Large energy streak 3 */}
@@ -48,7 +48,7 @@ export default function SkillsBackground() {
                     ease: 'linear',
                     delay: 4,
                 }}
-                className="absolute bottom-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent blur-[2px]"
+                className="absolute bottom-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/10 to-transparent blur-[2px]"
             />
             
             {/* Large vertical energy streak */}
@@ -63,7 +63,7 @@ export default function SkillsBackground() {
                     ease: 'linear',
                     delay: 1,
                 }}
-                className="absolute top-0 left-1/3 w-1.5 h-full bg-gradient-to-b from-transparent via-accent/30 to-transparent blur-[3px]"
+                className="absolute top-0 left-1/3 w-1.5 h-full bg-gradient-to-b from-transparent via-accent/10 to-transparent blur-[3px]"
             />
             
             {/* Large diagonal energy streak */}
@@ -79,7 +79,7 @@ export default function SkillsBackground() {
                     ease: 'linear',
                     delay: 3,
                 }}
-                className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/25 to-transparent blur-[2px] rotate-45"
+                className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/8 to-transparent blur-[2px] rotate-45"
             />
             
             {/* Large particle 1 */}
@@ -87,15 +87,15 @@ export default function SkillsBackground() {
                 animate={{
                     x: [0, 300, 0],
                     y: [0, -150, 0],
-                    opacity: [0, 0.7, 0],
-                    scale: [0, 1.5, 0],
+                    opacity: [0, 0.3, 0],
+                    scale: [0, 1.2, 0],
                 }}
                 transition={{
                     duration: 5,
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/3 left-1/4 w-4 h-4 bg-accent/50 rounded-full blur-[4px]"
+                className="absolute top-1/3 left-1/4 w-4 h-4 bg-accent/20 rounded-full blur-[4px]"
             />
             
             {/* Large particle 2 */}
@@ -103,8 +103,8 @@ export default function SkillsBackground() {
                 animate={{
                     x: [0, -250, 0],
                     y: [0, 120, 0],
-                    opacity: [0, 0.6, 0],
-                    scale: [0, 1.3, 0],
+                    opacity: [0, 0.25, 0],
+                    scale: [0, 1.1, 0],
                 }}
                 transition={{
                     duration: 7,
@@ -112,7 +112,7 @@ export default function SkillsBackground() {
                     ease: 'easeInOut',
                     delay: 2,
                 }}
-                className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-accent/45 rounded-full blur-[3px]"
+                className="absolute bottom-1/3 right-1/4 w-3 h-3 bg-accent/18 rounded-full blur-[3px]"
             />
             
             {/* Large particle 3 */}
@@ -120,8 +120,8 @@ export default function SkillsBackground() {
                 animate={{
                     x: [0, 200, 0],
                     y: [0, -100, 0],
-                    opacity: [0, 0.5, 0],
-                    scale: [0, 1.2, 0],
+                    opacity: [0, 0.2, 0],
+                    scale: [0, 1.0, 0],
                 }}
                 transition={{
                     duration: 6,
@@ -129,7 +129,7 @@ export default function SkillsBackground() {
                     ease: 'easeInOut',
                     delay: 4,
                 }}
-                className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-accent/40 rounded-full blur-[3px]"
+                className="absolute top-1/2 right-1/3 w-2.5 h-2.5 bg-accent/16 rounded-full blur-[3px]"
             />
             
             {/* Large particle 4 */}
@@ -137,8 +137,8 @@ export default function SkillsBackground() {
                 animate={{
                     x: [0, -180, 0],
                     y: [0, 80, 0],
-                    opacity: [0, 0.4, 0],
-                    scale: [0, 1, 0],
+                    opacity: [0, 0.15, 0],
+                    scale: [0, 0.8, 0],
                 }}
                 transition={{
                     duration: 8,
@@ -146,25 +146,25 @@ export default function SkillsBackground() {
                     ease: 'easeInOut',
                     delay: 1,
                 }}
-                className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-accent/35 rounded-full blur-[2px]"
+                className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-accent/14 rounded-full blur-[2px]"
             />
             
             {/* Large central glow */}
             <motion.div
                 animate={{
                     scale: [1, 1.5, 1],
-                    opacity: [0.15, 0.3, 0.15],
+                    opacity: [0.06, 0.12, 0.06],
                 }}
                 transition={{
                     duration: 8,
                     repeat: Infinity,
                     ease: 'easeInOut',
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-accent/4 rounded-full blur-[100px]"
             />
             
             {/* Grid pattern overlay */}
-            <div className="absolute inset-0 opacity-[0.05]" style={{
+            <div className="absolute inset-0 opacity-[0.02]" style={{
                 backgroundImage: `
                     linear-gradient(to right, rgba(150,130,115,0.4) 1px, transparent 1px),
                     linear-gradient(to bottom, rgba(150,130,115,0.4) 1px, transparent 1px)
