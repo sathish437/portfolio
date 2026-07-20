@@ -6,12 +6,11 @@ import {
 
 const categoryIcons = {
     'Programming Languages': Code2,
-    'Frontend Development': Layout,
-    'Backend Development': Server,
-    'Databases': Database,
-    'Cloud & Development Tools': Globe,
-    'API & Testing Tools': Wrench,
-    'Architecture & Concepts': Layers,
+    'Frontend': Layout,
+    'Backend': Server,
+    'Database': Database,
+    'Microservices & Cloud': Layers,
+    'DevOps & Tools': Wrench,
 };
 
 // Each category gets a unique accent so the grid feels varied
@@ -20,7 +19,7 @@ const categoryAccents = [
     { border: 'border-violet-400/15',  glow: 'hover:border-violet-400/30 hover:shadow-md',  icon: 'text-violet-400 bg-violet-400/10 border-violet-400/20',  badge: 'bg-violet-400/8 border-violet-400/15 text-violet-300' },
     { border: 'border-indigo-400/15',  glow: 'hover:border-indigo-400/30 hover:shadow-md',  icon: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',  badge: 'bg-indigo-400/8 border-indigo-400/15 text-indigo-300' },
     { border: 'border-emerald-400/15', glow: 'hover:border-emerald-400/30 hover:shadow-md', icon: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20', badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300' },
-    { border: 'border-amber-400/15',   glow: 'hover:border-amber-400/30 hover:shadow-md',   icon: 'text-amber-400 bg-amber-400/10 border-amber-400/20',   badge: 'bg-emerald-400/8 border-emerald-400/15 text-emerald-300'   },
+    { border: 'border-amber-400/15',   glow: 'hover:border-amber-400/30 hover:shadow-md',   icon: 'text-amber-400 bg-amber-400/10 border-amber-400/20',   badge: 'bg-amber-400/8 border-amber-400/15 text-amber-300'   },
     { border: 'border-rose-400/15',    glow: 'hover:border-rose-400/30 hover:shadow-md',    icon: 'text-rose-400 bg-rose-400/10 border-rose-400/20',    badge: 'bg-rose-400/8 border-rose-400/15 text-rose-300'    },
 ];
 

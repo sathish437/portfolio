@@ -2,7 +2,10 @@ import { motion } from 'framer-motion';
 import {
     Code, Zap, Palette, Wind, Sparkles, Leaf,
     Github, Package, FileText, Layers, Globe,
-    Box, RefreshCw, Database, Code2, Server
+    Box, RefreshCw, Database, Code2, Server,
+    Atom, Shield, Lock, Cloud, Network, GitFork,
+    Link, Settings, GitBranch, Terminal, FileJson,
+    Monitor
 } from 'lucide-react';
 
 const skillIconMap = {
@@ -23,14 +26,27 @@ const skillIconMap = {
     Python: Code,
     Code2: Code2,
     Server: Server,
+    Atom: Atom,
+    Shield: Shield,
+    Lock: Lock,
+    Cloud: Cloud,
+    Network: Network,
+    GitFork: GitFork,
+    Link: Link,
+    Settings: Settings,
+    GitBranch: GitBranch,
+    Terminal: Terminal,
+    FileJson: FileJson,
+    Monitor: Monitor,
 };
 
 const categoryDescriptions = {
-    "Programming Languages": "Core backend programming",
-    "Frontend": "Modern frontend UI",
-    "Backend": "Scalable backend framework",
-    "Database": "Data persistence & queries",
-    "Tools & DevOps": "Development & deployment tools",
+    "Programming Languages": "Core programming skills",
+    "Frontend": "User interface design & development",
+    "Backend": "Server logic & APIs development",
+    "Database": "Data storage & retrieval operations",
+    "Microservices & Cloud": "Cloud-native scaling & operations",
+    "DevOps & Tools": "Collaboration & development utilities",
 };
 
 const skillDescriptions = {
@@ -54,6 +70,20 @@ const skillDescriptions = {
     "Swagger": "API documentation",
     "Docker": "Containerization",
     "CI/CD (GitHub Actions)": "Automation pipeline",
+    "Responsive Web Design": "Mobile-first layout fluidity",
+    "Spring Security": "Secure web API protection",
+    "REST APIs": "RESTful endpoints design",
+    "JDBC": "Low-level database interactions",
+    "JWT Authentication": "Stateless secure token verification",
+    "Microservices": "Modular decoupled services",
+    "Spring Cloud": "Cloud-native services management",
+    "Eureka Server": "High availability service discovery",
+    "API Gateway": "Request routing & gateway",
+    "OpenFeign": "Declarative HTTP web service client",
+    "Config Server": "Centralized property configuration",
+    "Git": "Version control system",
+    "Swagger/OpenAPI": "Interactive REST specifications",
+    "IntelliJ IDEA": "Advanced IDE for enterprise workflows",
 };
 
 export default function SkillCard({

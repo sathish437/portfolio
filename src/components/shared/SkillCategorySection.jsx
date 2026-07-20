@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import {
-    Code2, Layout, Server, Wrench, Database, ChevronDown,
+    Code2, Layout, Server, Wrench, Database, ChevronDown, Layers
 } from 'lucide-react';
 import SkillCard from './SkillCard';
 
@@ -10,8 +10,8 @@ const categoryIcons = {
     "Frontend": Layout,
     "Backend": Server,
     "Database": Database,
-    "Tools & Databases": Wrench,
-    "Tools & DevOps": Wrench,
+    "Microservices & Cloud": Layers,
+    "DevOps & Tools": Wrench,
 };
 
 export default function SkillCategorySection({ category, index = 0 }) {

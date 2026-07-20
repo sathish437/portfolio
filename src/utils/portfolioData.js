@@ -26,60 +26,57 @@ export const portfolioData = {
                     name: "Programming Languages",
                     items: [
                         { name: "Java", highlight: true },
-                        { name: "JavaScript", highlight: true },
-                        { name: "SQL" }
+                        { name: "JavaScript", highlight: true }
                     ]
                 },
                 {
-                    name: "Frontend Development",
+                    name: "Frontend",
                     items: [
                         { name: "React.js", highlight: true },
                         { name: "HTML5" },
                         { name: "CSS3" },
-                        { name: "Tailwind CSS" }
+                        { name: "Tailwind CSS", highlight: true },
+                        { name: "Responsive Web Design" }
                     ]
                 },
                 {
-                    name: "Backend Development",
+                    name: "Backend",
                     items: [
                         { name: "Spring Boot", highlight: true },
-                        { name: "Hibernate / JPA", highlight: true },
-                        { name: "RESTful APIs" },
-                        { name: "Spring Security" },
+                        { name: "Spring Security", highlight: true },
+                        { name: "REST APIs" },
+                        { name: "JDBC" },
+                        { name: "JWT Authentication", highlight: true },
                         { name: "Microservices", highlight: true }
                     ]
                 },
                 {
-                    name: "Databases",
+                    name: "Database",
                     items: [
                         { name: "MySQL", highlight: true },
-                        { name: "PostgreSQL" }
+                        { name: "PostgreSQL", highlight: true }
                     ]
                 },
                 {
-                    name: "Cloud & Development Tools",
+                    name: "Microservices & Cloud",
                     items: [
+                        { name: "Spring Cloud", highlight: true },
+                        { name: "Eureka Server" },
+                        { name: "API Gateway", highlight: true },
+                        { name: "OpenFeign" },
+                        { name: "Config Server" }
+                    ]
+                },
+                {
+                    name: "DevOps & Tools",
+                    items: [
+                        { name: "Docker", highlight: true },
                         { name: "Git", highlight: true },
                         { name: "GitHub" },
                         { name: "Maven" },
-                        { name: "Docker" },
-                        { name: "IntelliJ IDEA" },
-                        { name: "VS Code" }
-                    ]
-                },
-                {
-                    name: "API & Testing Tools",
-                    items: [
-                        { name: "Postman", highlight: true },
-                        { name: "Swagger / OpenAPI" }
-                    ]
-                },
-                {
-                    name: "Architecture & Concepts",
-                    items: [
-                        { name: "API Gateway", highlight: true },
-                        { name: "Service Discovery (Eureka)" },
-                        { name: "Load Balancing" }
+                        { name: "Postman" },
+                        { name: "Swagger/OpenAPI" },
+                        { name: "IntelliJ IDEA" }
                     ]
                 }
             ]

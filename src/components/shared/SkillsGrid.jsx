@@ -13,28 +13,7 @@ export default function SkillsGrid({ data }) {
         },
     };
 
-    const combinedCategories = [];
-    data.categories.forEach(cat => {
-        if (cat.name === 'Database' || cat.name === 'Tools & DevOps') {
-            let toolsDbCat = combinedCategories.find(c => c.name === 'Tools & Databases');
-            if (!toolsDbCat) {
-                toolsDbCat = {
-                    name: 'Tools & Databases',
-                    icon: 'Database',
-                    color: 'cool',
-                    items: [],
-                };
-                combinedCategories.push(toolsDbCat);
-            }
-            cat.items.forEach(item => {
-                if (!toolsDbCat.items.some(existing => existing.name === item.name)) {
-                    toolsDbCat.items.push(item);
-                }
-            });
-        } else {
-            combinedCategories.push(cat);
-        }
-    });
+    const combinedCategories = data.categories;
 
     return (
         <div className="relative w-full overflow-visible">
